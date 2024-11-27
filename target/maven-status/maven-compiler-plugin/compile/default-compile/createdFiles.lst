@@ -1,0 +1,16 @@
+com\modelos\Peca.class
+com\modelos\PessoaJuridica.class
+com\modelos\Veiculo.class
+com\modelos\Propriedade.class
+com\modelos\Modelo.class
+com\modelos\Acessorio.class
+com\modelos\OrdemServico.class
+com\modelos\main.class
+com\modelos\ItensPeca.class
+com\modelos\PessoaFisica.class
+com\modelos\Cliente.class
+com\modelos\Oficina.class
+com\modelos\ItensServico.class
+com\modelos\Marca.class
+com\modelos\Funcionario.class
+com\modelos\Servico.class
