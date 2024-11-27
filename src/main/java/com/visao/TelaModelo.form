@@ -74,7 +74,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="btnModeloAlterar" max="32767" attributes="0"/>
-                              <Component id="btnModeloInserir" max="32767" attributes="0"/>
+                              <Component id="btnModeloSalvar" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -90,7 +90,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="btnModeloInserir" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnModeloSalvar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                           <Component id="btnModeloAlterar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -201,12 +201,12 @@
             <Property name="text" type="java.lang.String" value="VOLTAR"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnModeloInserir">
+        <Component class="javax.swing.JButton" name="btnModeloSalvar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="INSERIR"/>
+            <Property name="text" type="java.lang.String" value="SALVAR"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModeloInserirActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModeloSalvarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnModeloAlterar">
@@ -244,6 +244,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="ID"/>
           </Properties>
         </Component>

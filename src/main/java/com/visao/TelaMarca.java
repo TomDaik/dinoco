@@ -72,7 +72,7 @@ public class TelaMarca extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableMarca = new javax.swing.JTable();
         btnMarcaVoltar = new javax.swing.JButton();
-        btnMarcaInserir = new javax.swing.JButton();
+        btnMarcaSalvar = new javax.swing.JButton();
         btnMarcaAlterar = new javax.swing.JButton();
         btnMarcaDeletar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -85,6 +85,7 @@ public class TelaMarca extends javax.swing.JFrame {
         jLabel1.setText("CADASTRO DE MARCA");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("DESCRIÇÃO");
 
         txtMarcaDescricao.addActionListener(new java.awt.event.ActionListener() {
@@ -108,10 +109,10 @@ public class TelaMarca extends javax.swing.JFrame {
 
         btnMarcaVoltar.setText("VOLTAR");
 
-        btnMarcaInserir.setText("INSERIR");
-        btnMarcaInserir.addActionListener(new java.awt.event.ActionListener() {
+        btnMarcaSalvar.setText("SALVAR");
+        btnMarcaSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMarcaInserirActionPerformed(evt);
+                btnMarcaSalvarActionPerformed(evt);
             }
         });
 
@@ -124,6 +125,7 @@ public class TelaMarca extends javax.swing.JFrame {
 
         btnMarcaDeletar.setText("DELETAR");
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("ID");
 
         txtMarcaID.addActionListener(new java.awt.event.ActionListener() {
@@ -156,9 +158,9 @@ public class TelaMarca extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtMarcaDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                             .addComponent(txtMarcaID))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnMarcaInserir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnMarcaSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnMarcaVoltar, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnMarcaAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnMarcaDeletar, javax.swing.GroupLayout.Alignment.TRAILING))))
@@ -172,7 +174,7 @@ public class TelaMarca extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(btnMarcaInserir)
+                        .addComponent(btnMarcaSalvar)
                         .addGap(3, 3, 3)
                         .addComponent(btnMarcaAlterar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -216,7 +218,7 @@ public class TelaMarca extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMarcaDescricaoActionPerformed
 
-    private void btnMarcaInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcaInserirActionPerformed
+    private void btnMarcaSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcaSalvarActionPerformed
         try {
             int identificador = 0;
             String descricao = txtMarcaDescricao.getText();
@@ -228,7 +230,7 @@ public class TelaMarca extends javax.swing.JFrame {
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(rootPane, "Incluir Visao: " + erro.getMessage());
         }
-    }//GEN-LAST:event_btnMarcaInserirActionPerformed
+    }//GEN-LAST:event_btnMarcaSalvarActionPerformed
 
     private void btnMarcaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcaAlterarActionPerformed
         try {
@@ -282,7 +284,7 @@ public class TelaMarca extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMarcaAlterar;
     private javax.swing.JButton btnMarcaDeletar;
-    private javax.swing.JButton btnMarcaInserir;
+    private javax.swing.JButton btnMarcaSalvar;
     private javax.swing.JButton btnMarcaVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

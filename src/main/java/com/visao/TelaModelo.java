@@ -86,7 +86,7 @@ public class TelaModelo extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableModelo = new javax.swing.JTable();
         btnModeloVoltar = new javax.swing.JButton();
-        btnModeloInserir = new javax.swing.JButton();
+        btnModeloSalvar = new javax.swing.JButton();
         btnModeloAlterar = new javax.swing.JButton();
         btnModeloDeletar = new javax.swing.JButton();
         comboboxModeloMarca = new javax.swing.JComboBox<>();
@@ -125,10 +125,10 @@ public class TelaModelo extends javax.swing.JFrame {
 
         btnModeloVoltar.setText("VOLTAR");
 
-        btnModeloInserir.setText("INSERIR");
-        btnModeloInserir.addActionListener(new java.awt.event.ActionListener() {
+        btnModeloSalvar.setText("SALVAR");
+        btnModeloSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModeloInserirActionPerformed(evt);
+                btnModeloSalvarActionPerformed(evt);
             }
         });
 
@@ -148,6 +148,7 @@ public class TelaModelo extends javax.swing.JFrame {
 
         comboboxModeloMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("ID");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -184,7 +185,7 @@ public class TelaModelo extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnModeloAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnModeloInserir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnModeloSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -195,7 +196,7 @@ public class TelaModelo extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnModeloInserir)
+                        .addComponent(btnModeloSalvar)
                         .addGap(5, 5, 5)
                         .addComponent(btnModeloAlterar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -242,20 +243,20 @@ public class TelaModelo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnModeloDeletarActionPerformed
 
-    private void btnModeloInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModeloInserirActionPerformed
+    private void btnModeloSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModeloSalvarActionPerformed
         try {
             Modelo modelo = null;
             int identificador = 0;
-            String marca = (String) comboboxModeloMarca.getSelectedItem();
+            int marca = (int) comboboxModeloMarca.getSelectedItem();
             String descricao = txtModeloDescricao.getText();
             modelo = new Modelo(identificador, descricao, marca);
-            gastosBD.incluir(registroDeGasto);
+            modeloBD.incluir(modelo);
             limparTela();
             mostrarModeloNaGrid();
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(rootPane, "Incluir Visao: " + erro.getMessage());
         }
-    }//GEN-LAST:event_btnModeloInserirActionPerformed
+    }//GEN-LAST:event_btnModeloSalvarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,7 +297,7 @@ public class TelaModelo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnModeloAlterar;
     private javax.swing.JButton btnModeloDeletar;
-    private javax.swing.JButton btnModeloInserir;
+    private javax.swing.JButton btnModeloSalvar;
     private javax.swing.JButton btnModeloVoltar;
     private javax.swing.JComboBox<String> comboboxModeloMarca;
     private javax.swing.JLabel jLabel1;
