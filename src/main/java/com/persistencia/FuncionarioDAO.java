@@ -70,7 +70,7 @@ public class FuncionarioDAO implements IFuncionarioCRUD {
     @Override
     public void alterar(Funcionario objFuncionario) throws Exception {
         try {
-            String sql = "update funcionario set nome = ?, especialidade = ?"
+            String sql = "update funcionario set nome = ?, especialidade = ? "
                     + "where idfuncionario = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setString(1, objFuncionario.getNome());

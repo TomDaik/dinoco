@@ -4,17 +4,56 @@
  */
 package com.visao;
 
+import com.modelos.Marca;
+import com.modelos.crud.IMarcaCRUD;
+import com.persistencia.MarcaDAO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Alexandre
  */
 public class TelaMarca extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaMarca
-     */
+    private IMarcaCRUD marcaBD = null;
+
     public TelaMarca() {
         initComponents();
+        setLocationRelativeTo(null);
+        try {
+            marcaBD = new MarcaDAO();
+            mostrarMarcaNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Construtor Tela: " + erro.getMessage());
+        }
+    }
+
+    private void limparTela() {
+        txtMarcaID.setText("");
+        txtMarcaDescricao.setText("");
+    }
+
+    private void mostrarMarcaNaGrid() {
+        try {
+            ArrayList<Marca> listaDeMarca = null;
+            listaDeMarca = marcaBD.obterListaDeMarca();
+            DefaultTableModel model = (DefaultTableModel) tableMarca.getModel();
+            model.setNumRows(0);
+            if (listaDeMarca.isEmpty()) {
+                throw new Exception("Lista de Marca BD Vazia");
+            }
+            for (int pos = 0; pos < listaDeMarca.size(); pos++) {
+                Marca objMarca = listaDeMarca.get(pos);
+                String[] linha = new String[2];
+                linha[0] = objMarca.getIdMarca() + "";
+                linha[1] = objMarca.getDescricao();
+                model.addRow(linha);
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
     }
 
     /**
@@ -33,9 +72,11 @@ public class TelaMarca extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableMarca = new javax.swing.JTable();
         btnMarcaVoltar = new javax.swing.JButton();
-        btnMarcaSalvar = new javax.swing.JButton();
+        btnMarcaInserir = new javax.swing.JButton();
         btnMarcaAlterar = new javax.swing.JButton();
         btnMarcaDeletar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtMarcaID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,6 +86,12 @@ public class TelaMarca extends javax.swing.JFrame {
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel2.setText("DESCRIÇÃO");
+
+        txtMarcaDescricao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMarcaDescricaoActionPerformed(evt);
+            }
+        });
 
         tableMarca.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -61,11 +108,29 @@ public class TelaMarca extends javax.swing.JFrame {
 
         btnMarcaVoltar.setText("VOLTAR");
 
-        btnMarcaSalvar.setText("SALVAR");
+        btnMarcaInserir.setText("INSERIR");
+        btnMarcaInserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMarcaInserirActionPerformed(evt);
+            }
+        });
 
         btnMarcaAlterar.setText("ALTERAR");
+        btnMarcaAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMarcaAlterarActionPerformed(evt);
+            }
+        });
 
         btnMarcaDeletar.setText("DELETAR");
+
+        jLabel3.setText("ID");
+
+        txtMarcaID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMarcaIDActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -79,13 +144,21 @@ public class TelaMarca extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtMarcaDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel3)
+                                .addGap(39, 39, 39)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnMarcaSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtMarcaDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                            .addComponent(txtMarcaID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnMarcaInserir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnMarcaVoltar, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnMarcaAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnMarcaDeletar, javax.swing.GroupLayout.Alignment.TRAILING))))
@@ -96,20 +169,29 @@ public class TelaMarca extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtMarcaDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMarcaSalvar))
-                .addGap(3, 3, 3)
-                .addComponent(btnMarcaAlterar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnMarcaDeletar)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnMarcaVoltar)
-                .addGap(12, 12, 12))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnMarcaInserir)
+                        .addGap(3, 3, 3)
+                        .addComponent(btnMarcaAlterar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnMarcaDeletar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnMarcaVoltar)
+                        .addGap(12, 12, 12))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtMarcaID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtMarcaDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -125,6 +207,42 @@ public class TelaMarca extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtMarcaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarcaIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMarcaIDActionPerformed
+
+    private void txtMarcaDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarcaDescricaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMarcaDescricaoActionPerformed
+
+    private void btnMarcaInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcaInserirActionPerformed
+        try {
+            int identificador = 0;
+            String descricao = txtMarcaDescricao.getText();
+            Marca objMarca = null;
+            objMarca = new Marca(identificador, descricao);
+            marcaBD.incluir(objMarca);
+            limparTela();
+            mostrarMarcaNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, "Incluir Visao: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_btnMarcaInserirActionPerformed
+
+    private void btnMarcaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcaAlterarActionPerformed
+        try {
+            int identificador = Integer.parseInt(txtMarcaID.getText());
+            String descricao = txtMarcaDescricao.getText();
+            Marca objMarca = null;
+            objMarca = new Marca(identificador, descricao);
+            marcaBD.alterar(objMarca);
+            limparTela();
+            mostrarMarcaNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, "Incluir Visao: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_btnMarcaAlterarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,13 +282,15 @@ public class TelaMarca extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMarcaAlterar;
     private javax.swing.JButton btnMarcaDeletar;
-    private javax.swing.JButton btnMarcaSalvar;
+    private javax.swing.JButton btnMarcaInserir;
     private javax.swing.JButton btnMarcaVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableMarca;
     private javax.swing.JTextField txtMarcaDescricao;
+    private javax.swing.JTextField txtMarcaID;
     // End of variables declaration//GEN-END:variables
 }

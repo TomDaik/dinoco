@@ -4,17 +4,70 @@
  */
 package com.visao;
 
+import com.modelos.Marca;
+import com.modelos.Modelo;
+import com.modelos.crud.IMarcaCRUD;
+import com.modelos.crud.IModeloCRUD;
+import com.persistencia.MarcaDAO;
+import com.persistencia.ModeloDAO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Alexandre
  */
 public class TelaModelo extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaModelo
-     */
+    private IMarcaCRUD marcaBD = null;
+    private IModeloCRUD modeloBD = null;
+
     public TelaModelo() {
         initComponents();
+        setLocationRelativeTo(null);
+        try {
+            // modelo
+            modeloBD = new ModeloDAO();
+            // Marca
+            marcaBD = new MarcaDAO();
+            ArrayList<Marca> listaDeMarca = null;
+            listaDeMarca = marcaBD.obterListaDeMarca();
+            comboboxModeloMarca.removeAllItems();
+            for (int pos = 0; pos < listaDeMarca.size(); pos++) {
+                comboboxModeloMarca.addItem(listaDeMarca.get(pos).toString());
+            }
+            mostrarModeloNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Construtor Tela: " + erro.getMessage());
+        }
+    }
+
+    private void limparTela() {
+        txtModeloDescricao.setText("");
+        txtModeloID.setText("");
+    }
+
+    private void mostrarModeloNaGrid() {
+        try {
+            ArrayList<Modelo> listaDeModelo = null;
+            listaDeModelo = modeloBD.obterListaDeModelo();
+            DefaultTableModel model = (DefaultTableModel) tableModelo.getModel();
+            model.setNumRows(0);
+            if (listaDeModelo.isEmpty()) {
+                throw new Exception("Lista de Modelo BD Vazia");
+            }
+            for (int pos = 0; pos < listaDeModelo.size(); pos++) {
+                Modelo objModelo = listaDeModelo.get(pos);
+                String[] linha = new String[3];
+                linha[0] = objModelo.getIdModelo() + "";
+                linha[1] = objModelo.getIdMarca() + "";
+                linha[2] = objModelo.getDescricao() + "";
+                model.addRow(linha);
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
     }
 
     /**
@@ -33,11 +86,13 @@ public class TelaModelo extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableModelo = new javax.swing.JTable();
         btnModeloVoltar = new javax.swing.JButton();
-        btnModeloSalvar = new javax.swing.JButton();
+        btnModeloInserir = new javax.swing.JButton();
         btnModeloAlterar = new javax.swing.JButton();
         btnModeloDeletar = new javax.swing.JButton();
         comboboxModeloMarca = new javax.swing.JComboBox<>();
         txtModeloDescricao = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtModeloID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,7 +125,12 @@ public class TelaModelo extends javax.swing.JFrame {
 
         btnModeloVoltar.setText("VOLTAR");
 
-        btnModeloSalvar.setText("SALVAR");
+        btnModeloInserir.setText("INSERIR");
+        btnModeloInserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModeloInserirActionPerformed(evt);
+            }
+        });
 
         btnModeloAlterar.setText("ALTERAR");
         btnModeloAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +148,8 @@ public class TelaModelo extends javax.swing.JFrame {
 
         comboboxModeloMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLabel4.setText("ID");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -95,30 +157,34 @@ public class TelaModelo extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtModeloDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(comboboxModeloMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnModeloAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnModeloSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnModeloVoltar))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtModeloDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnModeloDeletar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnModeloVoltar, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnModeloDeletar, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel3)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(jLabel4)))
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(comboboxModeloMarca, 0, 80, Short.MAX_VALUE)
+                            .addComponent(txtModeloID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnModeloAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnModeloInserir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -126,28 +192,32 @@ public class TelaModelo extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(comboboxModeloMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtModeloDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnModeloSalvar)
+                        .addComponent(btnModeloInserir)
                         .addGap(5, 5, 5)
                         .addComponent(btnModeloAlterar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnModeloDeletar)))
+                        .addComponent(btnModeloDeletar)
+                        .addGap(6, 6, 6))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtModeloID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(5, 5, 5)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(comboboxModeloMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtModeloDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnModeloVoltar)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -171,6 +241,21 @@ public class TelaModelo extends javax.swing.JFrame {
     private void btnModeloDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModeloDeletarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnModeloDeletarActionPerformed
+
+    private void btnModeloInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModeloInserirActionPerformed
+        try {
+            Modelo modelo = null;
+            int identificador = 0;
+            String marca = (String) comboboxModeloMarca.getSelectedItem();
+            String descricao = txtModeloDescricao.getText();
+            modelo = new Modelo(identificador, descricao, marca);
+            gastosBD.incluir(registroDeGasto);
+            limparTela();
+            mostrarModeloNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, "Incluir Visao: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_btnModeloInserirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,15 +296,17 @@ public class TelaModelo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnModeloAlterar;
     private javax.swing.JButton btnModeloDeletar;
-    private javax.swing.JButton btnModeloSalvar;
+    private javax.swing.JButton btnModeloInserir;
     private javax.swing.JButton btnModeloVoltar;
     private javax.swing.JComboBox<String> comboboxModeloMarca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableModelo;
     private javax.swing.JTextField txtModeloDescricao;
+    private javax.swing.JTextField txtModeloID;
     // End of variables declaration//GEN-END:variables
 }

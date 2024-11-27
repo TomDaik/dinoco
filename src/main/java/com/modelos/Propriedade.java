@@ -15,18 +15,18 @@ public class Propriedade {
     private int idPropriedade = 0;
     private Date dataInicio;
     private Date dataFim;
-    private String placaFK = "";
+    private int idVeiculo = 0;
     private int idCliente = 0;
 
     public Propriedade() {
     }
 
     public Propriedade(int idPropriedade, Date dataInicio, Date dataFim,
-            String placaFK, int idCliente) {
+            int idVeiculo, int idCliente) {
         this.idPropriedade = idPropriedade;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
-        this.placaFK = placaFK;
+        this.idVeiculo = idVeiculo;
         this.idCliente = idCliente;
     }
 
@@ -54,12 +54,12 @@ public class Propriedade {
         this.dataFim = dataFim;
     }
 
-    public String getPlacaFK() {
-        return placaFK;
+    public int getIdVeiculo() {
+        return idVeiculo;
     }
 
-    public void setPlacaFK(String placaFK) {
-        this.placaFK = placaFK;
+    public void setIdVeiculo(int idVeiculo) {
+        this.idVeiculo = idVeiculo;
     }
 
     public int getIdCliente() {

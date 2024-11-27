@@ -42,7 +42,7 @@ public class PropriedadeDAO implements IPropriedadeCRUD {
                 objPropriedade.setIdPropriedade(rs.getInt("idpropriedade"));
                 objPropriedade.setDataInicio(rs.getDate("datainicio"));
                 objPropriedade.setDataFim(rs.getDate("datafim"));
-                objPropriedade.setPlacaFK(rs.getString("placafk"));
+                objPropriedade.setIdVeiculo(rs.getInt("idveiculo"));
                 objPropriedade.setIdCliente(rs.getInt("idcliente"));
                 listaDePropriedade.add(objPropriedade);
             }
@@ -56,13 +56,13 @@ public class PropriedadeDAO implements IPropriedadeCRUD {
     @Override
     public void incluir(Propriedade objPropriedade) throws Exception {
         try {
-            String sql = "insert into propriedade (datainicio, datafim, placafk,"
+            String sql = "insert into propriedade (datainicio, datafim, idveiculo,"
                     + "idcliente)"
                     + "values(?,?,?,?);";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setDate(1, (Date) objPropriedade.getDataInicio());
             preparedStatement.setDate(2, (Date) objPropriedade.getDataFim());
-            preparedStatement.setString(3, objPropriedade.getPlacaFK());
+            preparedStatement.setInt(3, objPropriedade.getIdVeiculo());
             preparedStatement.setInt(4, objPropriedade.getIdCliente());
             preparedStatement.executeUpdate();
         } catch (SQLException erro) {
@@ -77,12 +77,12 @@ public class PropriedadeDAO implements IPropriedadeCRUD {
     public void alterar(Propriedade objPropriedade) throws Exception {
         try {
             String sql = "update propriedade set datainicio = ?, datafim = ?, "
-                    + "placafk = ?, idcliente = ?"
+                    + "idveiculo = ?, idcliente = ?"
                     + "where idpropriedade = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setDate(1, (Date) objPropriedade.getDataInicio());
             preparedStatement.setDate(2, (Date) objPropriedade.getDataFim());
-            preparedStatement.setString(3, objPropriedade.getPlacaFK());
+            preparedStatement.setInt(3, objPropriedade.getIdVeiculo());
             preparedStatement.setInt(4, objPropriedade.getIdCliente());
             preparedStatement.setInt(5, objPropriedade.getIdPropriedade());
             preparedStatement.executeUpdate();

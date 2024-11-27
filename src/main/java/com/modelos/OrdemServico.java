@@ -17,22 +17,21 @@ public class OrdemServico {
     private Date fim;
     private double totalPago = 0;
     private double precoFinal = 0;
-    private String status = "";
-    /*Trocar depois para o Tipo status(Criar o Enum)*/
-    private String placaFK = "";
+    private String status = ""; //Trocar depois para o Tipo status(Criar o Enum)
+    private int idVeiculo = 0;
 
     public OrdemServico() {
     }
 
     public OrdemServico(int numeroOS, Date inicio, Date fim, double totalPago,
-            double precoFinal, String status, String placaFK) {
+            double precoFinal, String status, int idVeiculo) {
         this.numeroOS = numeroOS;
         this.inico = inicio;
         this.fim = fim;
         this.totalPago = totalPago;
         this.precoFinal = precoFinal;
         this.status = status;
-        this.placaFK = placaFK;
+        this.idVeiculo = idVeiculo;
     }
 
     public int getNumeroOS() {
@@ -83,12 +82,12 @@ public class OrdemServico {
         this.status = status;
     }
 
-    public String getPlacaFK() {
-        return placaFK;
+    public int getIdVeiculo() {
+        return idVeiculo;
     }
 
-    public void setPlacaFK(String placaFK) {
-        this.placaFK = placaFK;
+    public void setIdVeiculo(int idVeiculo) {
+        this.idVeiculo = idVeiculo;
     }
 
 }

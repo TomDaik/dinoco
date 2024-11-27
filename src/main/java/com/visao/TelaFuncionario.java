@@ -4,17 +4,60 @@
  */
 package com.visao;
 
+import com.modelos.Funcionario;
+import com.modelos.crud.IFuncionarioCRUD;
+import com.persistencia.FuncionarioDAO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Alexandre
  */
 public class TelaFuncionario extends javax.swing.JFrame {
 
+    private IFuncionarioCRUD funcionarioBD = null;
+
     /**
      * Creates new form Funcionario
      */
     public TelaFuncionario() {
         initComponents();
+        setLocationRelativeTo(null);
+        try {
+            funcionarioBD = new FuncionarioDAO();
+            mostrarFuncionarioNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Construtor Tela: " + erro.getMessage());
+        }
+    }
+
+    private void limparTela() {
+        txtFuncionarioNome.setText("");
+        txtFuncionarioEspecialidade.setText("");
+    }
+
+    private void mostrarFuncionarioNaGrid() {
+        try {
+            ArrayList<Funcionario> listaDeFuncionario = null;
+            listaDeFuncionario = funcionarioBD.obterListaDeFuncionario();
+            DefaultTableModel model = (DefaultTableModel) tableFuncionario.getModel();
+            model.setNumRows(0);
+            if (listaDeFuncionario.isEmpty()) {
+                throw new Exception("Lista de Funcionario BD Vazia");
+            }
+            for (int pos = 0; pos < listaDeFuncionario.size(); pos++) {
+                Funcionario objFuncionario = listaDeFuncionario.get(pos);
+                String[] linha = new String[3];
+                linha[0] = objFuncionario.getIdFuncionario() + "";
+                linha[1] = objFuncionario.getNome() + "";
+                linha[2] = objFuncionario.getEspecialidade();
+                model.addRow(linha);
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
     }
 
     /**
@@ -34,10 +77,12 @@ public class TelaFuncionario extends javax.swing.JFrame {
         txtFuncionarioEspecialidade = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableFuncionario = new javax.swing.JTable();
-        btnFuncionarioSalvar = new javax.swing.JButton();
+        btnFuncionarioIncluir = new javax.swing.JButton();
         btnFuncionarioAlterar = new javax.swing.JButton();
         btnFuncionarioDeletar = new javax.swing.JButton();
         btnFuncionarioVoltar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txtFuncionarioID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +97,12 @@ public class TelaFuncionario extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("ESPECIALIDADE");
 
+        txtFuncionarioNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFuncionarioNomeActionPerformed(evt);
+            }
+        });
+
         tableFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -65,13 +116,31 @@ public class TelaFuncionario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tableFuncionario);
 
-        btnFuncionarioSalvar.setText("SALVAR");
+        btnFuncionarioIncluir.setText("INCLUIR");
+        btnFuncionarioIncluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFuncionarioIncluirActionPerformed(evt);
+            }
+        });
 
         btnFuncionarioAlterar.setText("ALTERAR");
+        btnFuncionarioAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFuncionarioAlterarActionPerformed(evt);
+            }
+        });
 
         btnFuncionarioDeletar.setText("DELETAR");
 
         btnFuncionarioVoltar.setText("VOLTAR");
+
+        jLabel4.setText("ID");
+
+        txtFuncionarioID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFuncionarioIDActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -93,14 +162,21 @@ public class TelaFuncionario extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtFuncionarioEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(31, 31, 31)
-                                .addComponent(txtFuncionarioNome, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(31, 31, 31))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(44, 44, 44)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtFuncionarioNome, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                                    .addComponent(txtFuncionarioID))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(btnFuncionarioAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnFuncionarioSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btnFuncionarioIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(btnFuncionarioDeletar, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -115,13 +191,19 @@ public class TelaFuncionario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addComponent(btnFuncionarioSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnFuncionarioIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtFuncionarioID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnFuncionarioAlterar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnFuncionarioDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(txtFuncionarioNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -130,7 +212,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(txtFuncionarioEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnFuncionarioVoltar)
                 .addGap(12, 12, 12))
@@ -149,6 +231,43 @@ public class TelaFuncionario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtFuncionarioNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFuncionarioNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFuncionarioNomeActionPerformed
+
+    private void btnFuncionarioIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuncionarioIncluirActionPerformed
+        try {
+            int identificador = 0;
+            String nome = txtFuncionarioNome.getText();
+            String especialidade = txtFuncionarioEspecialidade.getText();
+            Funcionario objFuncionario = new Funcionario(identificador, nome, especialidade);
+            funcionarioBD.incluir(objFuncionario);
+            limparTela();
+            mostrarFuncionarioNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, "Incluir Visao: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_btnFuncionarioIncluirActionPerformed
+
+    private void txtFuncionarioIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFuncionarioIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFuncionarioIDActionPerformed
+
+    private void btnFuncionarioAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuncionarioAlterarActionPerformed
+        try {
+            int identificador = Integer.parseInt(txtFuncionarioID.getText());
+            String nome = txtFuncionarioNome.getText();
+            String especialidade = txtFuncionarioEspecialidade.getText();
+            Funcionario objFuncionario = null;
+            objFuncionario = new Funcionario(identificador, nome, especialidade);
+            funcionarioBD.alterar(objFuncionario);
+            limparTela();
+            mostrarFuncionarioNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, "Incluir Visao: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_btnFuncionarioAlterarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,15 +308,17 @@ public class TelaFuncionario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFuncionarioAlterar;
     private javax.swing.JButton btnFuncionarioDeletar;
-    private javax.swing.JButton btnFuncionarioSalvar;
+    private javax.swing.JButton btnFuncionarioIncluir;
     private javax.swing.JButton btnFuncionarioVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableFuncionario;
     private javax.swing.JTextField txtFuncionarioEspecialidade;
+    private javax.swing.JTextField txtFuncionarioID;
     private javax.swing.JTextField txtFuncionarioNome;
     // End of variables declaration//GEN-END:variables
 }

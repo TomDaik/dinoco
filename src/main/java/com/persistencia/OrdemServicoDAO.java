@@ -45,7 +45,7 @@ public class OrdemServicoDAO implements IOrdemServicoCRUD {
                 objOrdemServico.setTotalPago(rs.getDouble("totalpago"));
                 objOrdemServico.setPrecoFinal(rs.getDouble("precofinal"));
                 objOrdemServico.setStatus(rs.getString("status"));
-                objOrdemServico.setPlacaFK(rs.getString("placafk"));
+                objOrdemServico.setIdVeiculo(rs.getInt("idveiculo"));
                 listaDeOrdemServico.add(objOrdemServico);
             }
             return listaDeOrdemServico;
@@ -59,7 +59,7 @@ public class OrdemServicoDAO implements IOrdemServicoCRUD {
     public void incluir(OrdemServico objOrdemServico) throws Exception {
         try {
             String sql = "insert into ordemservico (inicio, fim, totalpago, "
-                    + "precofinal, status, placafk)"
+                    + "precofinal, status, idveiculo)"
                     + "values(?,?,?,?,?,?);";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setDate(1, (Date) objOrdemServico.getInico());
@@ -67,7 +67,7 @@ public class OrdemServicoDAO implements IOrdemServicoCRUD {
             preparedStatement.setDouble(3, objOrdemServico.getTotalPago());
             preparedStatement.setDouble(4, objOrdemServico.getPrecoFinal());
             preparedStatement.setString(5, objOrdemServico.getStatus());
-            preparedStatement.setString(6, objOrdemServico.getPlacaFK());
+            preparedStatement.setInt(6, objOrdemServico.getIdVeiculo());
             preparedStatement.executeUpdate();
         } catch (SQLException erro) {
             //Erro do comando SQL - chave, coluna, nome da tabela, ...
@@ -81,7 +81,7 @@ public class OrdemServicoDAO implements IOrdemServicoCRUD {
     public void alterar(OrdemServico objOrdemServico) throws Exception {
         try {
             String sql = "update ordemservico set inicio = ?, fim = ?, "
-                    + "totalpago = ?, precofinal = ?, status = ?, placafk = ?"
+                    + "totalpago = ?, precofinal = ?, status = ?, idveiculo = ?"
                     + "where numeroos = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setDate(1, (Date) objOrdemServico.getInico());
@@ -89,7 +89,7 @@ public class OrdemServicoDAO implements IOrdemServicoCRUD {
             preparedStatement.setDouble(3, objOrdemServico.getTotalPago());
             preparedStatement.setDouble(4, objOrdemServico.getPrecoFinal());
             preparedStatement.setString(5, objOrdemServico.getStatus());
-            preparedStatement.setString(6, objOrdemServico.getPlacaFK());
+            preparedStatement.setInt(6, objOrdemServico.getIdVeiculo());
             preparedStatement.setInt(7, objOrdemServico.getNumeroOS());
             preparedStatement.executeUpdate();
         } catch (SQLException erro) {

@@ -68,7 +68,7 @@ public class MarcaDAO implements IMarcaCRUD {
     @Override
     public void alterar(Marca objMarca) throws Exception {
         try {
-            String sql = "update marca set descricao = ?"
+            String sql = "update marca set descricao = ? "
                     + "where idmarca = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setString(1, objMarca.getDescricao());

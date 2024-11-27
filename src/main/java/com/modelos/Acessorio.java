@@ -12,15 +12,15 @@ public class Acessorio {
 
     private int idAcessorio = 0;
     private String descricao = "";
-    private String placaFK = "";
+    private int idVeiculo = 0;
 
     public Acessorio() {
     }
 
-    public Acessorio(int idAcessorio, String descricao, String placaFK) {
+    public Acessorio(int idAcessorio, String descricao, int idVeiculo) {
         this.idAcessorio = idAcessorio;
         this.descricao = descricao;
-        this.placaFK = placaFK;
+        this.idVeiculo = idVeiculo;
     }
 
     public int getIdAcessorio() {
@@ -39,12 +39,12 @@ public class Acessorio {
         this.descricao = descricao;
     }
 
-    public String getPlacaFK() {
-        return placaFK;
+    public int getIdVeiculo() {
+        return idVeiculo;
     }
 
-    public void setPlacaFK(String placaFK) {
-        this.placaFK = placaFK;
+    public void setIdVeiculo(int idVeiculo) {
+        this.idVeiculo = idVeiculo;
     }
 
 }
