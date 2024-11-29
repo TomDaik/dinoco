@@ -86,7 +86,7 @@ public class TelaMarca extends javax.swing.JFrame {
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setText("DESCRIÇÃO");
+        jLabel2.setText("Descrição");
 
         txtMarcaDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,28 +102,28 @@ public class TelaMarca extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "ID", "Marca"
+                "ID", "Descrição"
             }
         ));
         jScrollPane1.setViewportView(tableMarca);
 
-        btnMarcaVoltar.setText("VOLTAR");
+        btnMarcaVoltar.setText("Voltar");
 
-        btnMarcaSalvar.setText("SALVAR");
+        btnMarcaSalvar.setText("Salvar");
         btnMarcaSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMarcaSalvarActionPerformed(evt);
             }
         });
 
-        btnMarcaAlterar.setText("ALTERAR");
+        btnMarcaAlterar.setText("Alterar");
         btnMarcaAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMarcaAlterarActionPerformed(evt);
             }
         });
 
-        btnMarcaDeletar.setText("DELETAR");
+        btnMarcaDeletar.setText("Deletar");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("ID");
@@ -158,7 +158,7 @@ public class TelaMarca extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtMarcaDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                             .addComponent(txtMarcaID))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnMarcaSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnMarcaVoltar, javax.swing.GroupLayout.Alignment.TRAILING)

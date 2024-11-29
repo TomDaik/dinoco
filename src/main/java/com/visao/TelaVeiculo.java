@@ -66,60 +66,65 @@ public class TelaVeiculo extends javax.swing.JFrame {
         jLabel2.setText("ID");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setText("PLACA");
+        jLabel3.setText("Placa");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setText("CHASSI");
+        jLabel5.setText("Chassi");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel6.setText("MARCA");
+        jLabel6.setText("Marca");
 
         comboboxVeiculoMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         tableVeiculo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Placa", "Marca", "Modelo", "Ano", "Kilometragem", "Nº Patrimonio", "Acessório"
+                "ID", "Placa", "Chassi", "Marca", "Modelo", "Ano", "Kilometragem", "Nº Patrimonio", "Acessório"
             }
         ));
         jScrollPane1.setViewportView(tableVeiculo);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel7.setText("KILOMETRAGEM");
+        jLabel7.setText("Kilometragem");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel8.setText("MODELO");
+        jLabel8.setText("Modelo");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel9.setText("Nº PATRIMONIO");
+        jLabel9.setText("Nº Patrimonio");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel10.setText("ACESSÓRIO");
+        jLabel10.setText("Acessório");
 
         comboboxVeiculoAcessorio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnVeiculoSalvar.setText("SALVAR");
+        btnVeiculoSalvar.setText("Salvar");
         btnVeiculoSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVeiculoSalvarActionPerformed(evt);
             }
         });
 
-        btnVeiculoAlterar.setText("ALTERAR");
+        btnVeiculoAlterar.setText("Alterar");
+        btnVeiculoAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVeiculoAlterarActionPerformed(evt);
+            }
+        });
 
-        btnVeiculoDeletar.setText("DELETAR");
+        btnVeiculoDeletar.setText("Deletar");
         btnVeiculoDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVeiculoDeletarActionPerformed(evt);
             }
         });
 
-        btnVeiculoVoltar.setText("VOLTAR");
+        btnVeiculoVoltar.setText("Voltar");
         btnVeiculoVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVeiculoVoltarActionPerformed(evt);
@@ -127,7 +132,7 @@ public class TelaVeiculo extends javax.swing.JFrame {
         });
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel11.setText("ANO");
+        jLabel11.setText("Ano");
 
         comboboxVeiculoModelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -138,25 +143,17 @@ public class TelaVeiculo extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(20, 20, 20)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel8)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel3)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addComponent(jLabel11))))
-                                    .addComponent(jLabel4)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addComponent(jLabel2)))
-                        .addGap(34, 34, 34)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel11)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel2))
+                            .addComponent(jLabel4))
+                        .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtVeiculoPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                             .addComponent(txtVeiculoID, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
@@ -164,10 +161,9 @@ public class TelaVeiculo extends javax.swing.JFrame {
                             .addComponent(txtVeiculoChassi, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                             .addComponent(txtVeiculoAno)
                             .addComponent(comboboxVeiculoModelo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(1, 1, 1)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(77, 77, 77)
+                                .addGap(78, 78, 78)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -180,9 +176,12 @@ public class TelaVeiculo extends javax.swing.JFrame {
                                     .addComponent(txtVeiculoNPatrimonio, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtVeiculoKilometragem, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(btnVeiculoSalvar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnVeiculoDeletar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnVeiculoAlterar, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnVeiculoSalvar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnVeiculoAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnVeiculoDeletar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,25 +219,25 @@ public class TelaVeiculo extends javax.swing.JFrame {
                         .addComponent(jLabel5)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnVeiculoSalvar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVeiculoAlterar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVeiculoDeletar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(comboboxVeiculoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(comboboxVeiculoModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboboxVeiculoModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtVeiculoAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(btnVeiculoSalvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnVeiculoAlterar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnVeiculoDeletar)))
+                            .addComponent(jLabel11))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -273,6 +272,10 @@ public class TelaVeiculo extends javax.swing.JFrame {
     private void btnVeiculoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeiculoVoltarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVeiculoVoltarActionPerformed
+
+    private void btnVeiculoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeiculoAlterarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVeiculoAlterarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -83,6 +83,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
         btnFuncionarioVoltar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtFuncionarioID = new javax.swing.JTextField();
+        comboboxFuncionarioEspecialidade = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,14 +93,20 @@ public class TelaFuncionario extends javax.swing.JFrame {
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setText("NOME");
+        jLabel2.setText("Nome");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setText("ESPECIALIDADE");
+        jLabel3.setText("Especialidade");
 
         txtFuncionarioNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFuncionarioNomeActionPerformed(evt);
+            }
+        });
+
+        txtFuncionarioEspecialidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFuncionarioEspecialidadeActionPerformed(evt);
             }
         });
 
@@ -116,23 +123,23 @@ public class TelaFuncionario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tableFuncionario);
 
-        btnFuncionarioSalvar.setText("SALVAR");
+        btnFuncionarioSalvar.setText("Salvar");
         btnFuncionarioSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFuncionarioSalvarActionPerformed(evt);
             }
         });
 
-        btnFuncionarioAlterar.setText("ALTERAR");
+        btnFuncionarioAlterar.setText("Alterar");
         btnFuncionarioAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFuncionarioAlterarActionPerformed(evt);
             }
         });
 
-        btnFuncionarioDeletar.setText("DELETAR");
+        btnFuncionarioDeletar.setText("Deletar");
 
-        btnFuncionarioVoltar.setText("VOLTAR");
+        btnFuncionarioVoltar.setText("Voltar");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("ID");
@@ -142,6 +149,8 @@ public class TelaFuncionario extends javax.swing.JFrame {
                 txtFuncionarioIDActionPerformed(evt);
             }
         });
+
+        comboboxFuncionarioEspecialidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -173,12 +182,13 @@ public class TelaFuncionario extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtFuncionarioNome, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                                     .addComponent(txtFuncionarioID))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnFuncionarioAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnFuncionarioSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(btnFuncionarioDeletar, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comboboxFuncionarioEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnFuncionarioAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnFuncionarioDeletar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnFuncionarioSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnFuncionarioVoltar)))
@@ -211,7 +221,8 @@ public class TelaFuncionario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(txtFuncionarioEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtFuncionarioEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboboxFuncionarioEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -270,6 +281,10 @@ public class TelaFuncionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnFuncionarioAlterarActionPerformed
 
+    private void txtFuncionarioEspecialidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFuncionarioEspecialidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFuncionarioEspecialidadeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -311,6 +326,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton btnFuncionarioDeletar;
     private javax.swing.JButton btnFuncionarioSalvar;
     private javax.swing.JButton btnFuncionarioVoltar;
+    private javax.swing.JComboBox<String> comboboxFuncionarioEspecialidade;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

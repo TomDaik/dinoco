@@ -58,7 +58,7 @@
                               <Component id="txtAcessorioDescricao" min="-2" pref="80" max="-2" attributes="0"/>
                               <Component id="txtAcessorioID" min="-2" pref="80" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="132" max="32767" attributes="0"/>
+                          <EmptySpace pref="149" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="btnAcessorioAlterar" max="32767" attributes="0"/>
                               <Component id="btnAcessorioSalvar" max="32767" attributes="0"/>
@@ -130,7 +130,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="DESCRI&#xc7;&#xc3;O"/>
+            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtAcessorioDescricao">
@@ -183,22 +183,22 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnAcessorioSalvar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="SALVAR"/>
+            <Property name="text" type="java.lang.String" value="Salvar"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnAcessorioAlterar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="ALTERAR"/>
+            <Property name="text" type="java.lang.String" value="Alterar"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnAcessorioDeletar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="DELETAR"/>
+            <Property name="text" type="java.lang.String" value="Deletar"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnAcessorioVoltar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="VOLTAR"/>
+            <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
         </Component>
       </SubComponents>

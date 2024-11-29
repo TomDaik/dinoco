@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="lblOsModelo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="421" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="lblOsNumeroOS" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="lblOsNome" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                                              <Component id="lblOsCPF" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblOsContato" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblOsTelefone" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="lblOsMarca" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                                  <Component id="lblOsPlaca" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="lblOsRazaoSocial" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="lblOsCNPJ" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblOsEmail" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                              <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblOsIE" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="lblOsStatus" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                                              <Component id="lblOsChassi" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <Component id="lblOsKilometragem" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Component id="lblOsAcessorio" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lblOsAno" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                                      <Component id="lblOsNPatrimonio" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="btnOsAdicionarPeca" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="btnOsRemoverPeca" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
+              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnOsAdicionarServico" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="btnOsRemoverServico" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="btnOsVoltar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOsNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOsCPF" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOsTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOsEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblOsNumeroOS" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOsRazaoSocial" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOsCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOsContato" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOsIE" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOsStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblOsMarca" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOsPlaca" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOsAno" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOsNPatrimonio" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblOsModelo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOsChassi" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOsKilometragem" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOsAcessorio" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnOsAdicionarPeca" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnOsRemoverPeca" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="160" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnOsAdicionarServico" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnOsRemoverServico" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="160" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+              <Component id="btnOsVoltar" min="-2" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="ORDEM DE SERVI&#xc7;O"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="N&#xda;MERO"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsNumeroOS">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="printarNumeroOS"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="tableOsPecas">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="5" rowCount="4">
+                <Column editable="true" title="C&#xf3;digo" type="java.lang.Object"/>
+                <Column editable="true" title="Descri&#xe7;&#xe3;o" type="java.lang.Object"/>
+                <Column editable="true" title="Quantidade" type="java.lang.Object"/>
+                <Column editable="true" title="Pre&#xe7;o Unit&#xe1;rio" type="java.lang.Object"/>
+                <Column editable="true" title="Pre&#xe7;o Total" type="java.lang.Object"/>
+              </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
+            </Property>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="tableOsServicos">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="3" rowCount="4">
+                <Column editable="true" title="Servi&#xe7;o" type="java.lang.Object"/>
+                <Column editable="true" title="Respons&#xe1;vel" type="java.lang.Object"/>
+                <Column editable="true" title="Pre&#xe7;o" type="java.lang.Object"/>
+              </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
+            </Property>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="PE&#xc7;AS A SUBSTITUIR"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="SERVI&#xc7;OS A EXECUTAR"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsNome">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="NOME"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsCPF">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CPF"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsTelefone">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="TELEFONE"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsEmail">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="EMAIL"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsRazaoSocial">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="RAZAOSOCIAL"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel11">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="STATUS"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsStatus">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="printarStatus"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsCNPJ">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CNPJ"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsContato">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CONTATO"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsIE">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="IE"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel16">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="endereco..."/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsMarca">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="MARCA"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsModelo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="MODELO"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsPlaca">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="PLACA"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsChassi">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CHASSI"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsAno">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ANO"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsKilometragem">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="KILOMETRAGEM"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsNPatrimonio">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="nPATRIMONIO"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOsAcessorio">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Acessorio"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnOsAdicionarPeca">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Adicionar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnOsRemoverPeca">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Remover"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnOsAdicionarServico">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Adicionar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnOsRemoverServico">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Remover"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel25">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="PRECO TOTAL DA OS?"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnOsVoltar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Voltar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="falta label!!"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>

@@ -47,7 +47,7 @@ public class TelaAcessorio extends javax.swing.JFrame {
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setText("DESCRIÇÃO");
+        jLabel2.setText("Descrição");
 
         tableAcessorio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -65,13 +65,13 @@ public class TelaAcessorio extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("ID");
 
-        btnAcessorioSalvar.setText("SALVAR");
+        btnAcessorioSalvar.setText("Salvar");
 
-        btnAcessorioAlterar.setText("ALTERAR");
+        btnAcessorioAlterar.setText("Alterar");
 
-        btnAcessorioDeletar.setText("DELETAR");
+        btnAcessorioDeletar.setText("Deletar");
 
-        btnAcessorioVoltar.setText("VOLTAR");
+        btnAcessorioVoltar.setText("Voltar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -93,7 +93,7 @@ public class TelaAcessorio extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtAcessorioDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtAcessorioID, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnAcessorioAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnAcessorioSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
