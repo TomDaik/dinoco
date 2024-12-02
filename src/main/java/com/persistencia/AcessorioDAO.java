@@ -40,7 +40,6 @@ public class AcessorioDAO implements IAcessorioCRUD {
                 Acessorio objAcessorio = new Acessorio();
                 objAcessorio.setIdAcessorio(rs.getInt("idacessorio"));
                 objAcessorio.setDescricao(rs.getString("descricao"));
-                objAcessorio.setIdVeiculo(rs.getInt("idveiculo"));
                 listaDeAcessorio.add(objAcessorio);
             }
             return listaDeAcessorio;
@@ -53,11 +52,10 @@ public class AcessorioDAO implements IAcessorioCRUD {
     @Override
     public void incluir(Acessorio objAcessorio) throws Exception {
         try {
-            String sql = "insert into acessorio(descricao, idveiculo)"
-                    + "values(?,?);";
+            String sql = "insert into acessorio(descricao)"
+                    + "values(?);";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setString(1, objAcessorio.getDescricao());
-            preparedStatement.setInt(2, objAcessorio.getIdVeiculo());
             preparedStatement.executeUpdate();
         } catch (SQLException erro) {
             //Erro do comando SQL - chave, coluna, nome da tabela, ...
@@ -70,12 +68,11 @@ public class AcessorioDAO implements IAcessorioCRUD {
     @Override
     public void alterar(Acessorio objAcessorio) throws Exception {
         try {
-            String sql = "update acessorio set descricao = ?, idveiculo = ?"
+            String sql = "update acessorio set descricao = ? "
                     + "where idacessorio = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setString(1, objAcessorio.getDescricao());
-            preparedStatement.setInt(2, objAcessorio.getIdVeiculo());
-            preparedStatement.setInt(3, objAcessorio.getIdAcessorio());
+            preparedStatement.setInt(2, objAcessorio.getIdAcessorio());
             preparedStatement.executeUpdate();
         } catch (SQLException erro) {
             //Erro do comando SQL - chave, coluna, nome da tabela, ...

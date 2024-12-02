@@ -50,7 +50,6 @@ public class TelaCliente extends javax.swing.JFrame {
         btnClienteVoltar = new javax.swing.JButton();
         btnClienteSalvar = new javax.swing.JButton();
         btnClienteAlterar = new javax.swing.JButton();
-        btnClienteDeletar = new javax.swing.JButton();
         txtClienteMunicipio = new javax.swing.JTextField();
         txtClienteUF = new javax.swing.JTextField();
         txtClienteLogradouro = new javax.swing.JTextField();
@@ -129,8 +128,6 @@ public class TelaCliente extends javax.swing.JFrame {
         btnClienteSalvar.setText("Salvar");
 
         btnClienteAlterar.setText("Alterar");
-
-        btnClienteDeletar.setText("Deletar");
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel12.setText("Municipio");
@@ -283,11 +280,9 @@ public class TelaCliente extends javax.swing.JFrame {
                                         .addGap(48, 48, 48)
                                         .addComponent(ftxtClienteCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(29, 29, 29)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnClienteDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(btnClienteSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                                        .addComponent(btnClienteAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnClienteSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                                    .addComponent(btnClienteAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1))
@@ -325,8 +320,7 @@ public class TelaCliente extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtClienteComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17)
-                            .addComponent(ftxtClienteCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnClienteDeletar)))
+                            .addComponent(ftxtClienteCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -465,7 +459,6 @@ public class TelaCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClienteAlterar;
-    private javax.swing.JButton btnClienteDeletar;
     private javax.swing.JButton btnClienteSalvar;
     private javax.swing.JButton btnClienteVoltar;
     private javax.swing.JComboBox<String> comboboxClienteTipo;

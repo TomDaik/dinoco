@@ -4,17 +4,59 @@
  */
 package com.visao;
 
+import com.modelos.Acessorio;
+import com.modelos.crud.IAcessorioCRUD;
+import com.persistencia.AcessorioDAO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Alexandre
  */
 public class TelaAcessorio extends javax.swing.JFrame {
 
+    private IAcessorioCRUD acessorioBD = null;
+
     /**
      * Creates new form TelaAcessorio
      */
     public TelaAcessorio() {
         initComponents();
+        setLocationRelativeTo(null);
+        try {
+            acessorioBD = new AcessorioDAO();
+            mostrarAcessoriosNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Construtor Tela: " + erro.getMessage());
+        }
+    }
+
+    private void limparTela() {
+        txtAcessorioID.setText("");
+        txtAcessorioDescricao.setText("");
+    }
+
+    private void mostrarAcessoriosNaGrid() {
+        try {
+            ArrayList<Acessorio> listaDeAcessorios = null;
+            listaDeAcessorios = acessorioBD.obterListaDeAcessorio();
+            DefaultTableModel model = (DefaultTableModel) tableAcessorio.getModel();
+            model.setNumRows(0);
+            if (listaDeAcessorios.isEmpty()) {
+                throw new Exception("Lista de Acessorios BD Vazia");
+            }
+            for (int pos = 0; pos < listaDeAcessorios.size(); pos++) {
+                Acessorio objAcessorio = listaDeAcessorios.get(pos);
+                String[] linha = new String[5];
+                linha[0] = objAcessorio.getIdAcessorio() + "";
+                linha[1] = objAcessorio.getDescricao();
+                model.addRow(linha);
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
     }
 
     /**
@@ -36,7 +78,6 @@ public class TelaAcessorio extends javax.swing.JFrame {
         txtAcessorioID = new javax.swing.JTextField();
         btnAcessorioSalvar = new javax.swing.JButton();
         btnAcessorioAlterar = new javax.swing.JButton();
-        btnAcessorioDeletar = new javax.swing.JButton();
         btnAcessorioVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,10 +107,18 @@ public class TelaAcessorio extends javax.swing.JFrame {
         jLabel3.setText("ID");
 
         btnAcessorioSalvar.setText("Salvar");
+        btnAcessorioSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcessorioSalvarActionPerformed(evt);
+            }
+        });
 
         btnAcessorioAlterar.setText("Alterar");
-
-        btnAcessorioDeletar.setText("Deletar");
+        btnAcessorioAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcessorioAlterarActionPerformed(evt);
+            }
+        });
 
         btnAcessorioVoltar.setText("Voltar");
 
@@ -103,9 +152,7 @@ public class TelaAcessorio extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnAcessorioVoltar, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnAcessorioDeletar, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                                .addComponent(btnAcessorioVoltar)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -123,9 +170,7 @@ public class TelaAcessorio extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtAcessorioDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAcessorioAlterar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAcessorioDeletar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAcessorioVoltar)
@@ -145,6 +190,34 @@ public class TelaAcessorio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAcessorioSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessorioSalvarActionPerformed
+        try {
+            Acessorio acessorio = null;
+            int idAcessorio = 0;
+            String descricao = txtAcessorioDescricao.getText();
+            acessorio = new Acessorio(idAcessorio, descricao);
+            acessorioBD.incluir(acessorio);
+            limparTela();
+            mostrarAcessoriosNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, "Incluir Visao: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_btnAcessorioSalvarActionPerformed
+
+    private void btnAcessorioAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessorioAlterarActionPerformed
+        try {
+            Acessorio acessorio = null;
+            int idAcessorio = Integer.parseInt(txtAcessorioID.getText());
+            String descricao = txtAcessorioDescricao.getText();
+            acessorio = new Acessorio(idAcessorio, descricao);
+            acessorioBD.alterar(acessorio);
+            limparTela();
+            mostrarAcessoriosNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, "Incluir Visao: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_btnAcessorioAlterarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,7 +256,6 @@ public class TelaAcessorio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcessorioAlterar;
-    private javax.swing.JButton btnAcessorioDeletar;
     private javax.swing.JButton btnAcessorioSalvar;
     private javax.swing.JButton btnAcessorioVoltar;
     private javax.swing.JLabel jLabel1;

@@ -74,7 +74,6 @@ public class TelaMarca extends javax.swing.JFrame {
         btnMarcaVoltar = new javax.swing.JButton();
         btnMarcaSalvar = new javax.swing.JButton();
         btnMarcaAlterar = new javax.swing.JButton();
-        btnMarcaDeletar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtMarcaID = new javax.swing.JTextField();
 
@@ -123,8 +122,6 @@ public class TelaMarca extends javax.swing.JFrame {
             }
         });
 
-        btnMarcaDeletar.setText("Deletar");
-
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("ID");
 
@@ -162,8 +159,7 @@ public class TelaMarca extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnMarcaSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnMarcaVoltar, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnMarcaAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnMarcaDeletar, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(btnMarcaAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -177,9 +173,7 @@ public class TelaMarca extends javax.swing.JFrame {
                         .addComponent(btnMarcaSalvar)
                         .addGap(3, 3, 3)
                         .addComponent(btnMarcaAlterar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnMarcaDeletar)
-                        .addGap(18, 18, 18)
+                        .addGap(47, 47, 47)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnMarcaVoltar)
@@ -283,7 +277,6 @@ public class TelaMarca extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMarcaAlterar;
-    private javax.swing.JButton btnMarcaDeletar;
     private javax.swing.JButton btnMarcaSalvar;
     private javax.swing.JButton btnMarcaVoltar;
     private javax.swing.JLabel jLabel1;

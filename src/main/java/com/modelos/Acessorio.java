@@ -12,15 +12,13 @@ public class Acessorio {
 
     private int idAcessorio = 0;
     private String descricao = "";
-    private int idVeiculo = 0;
 
     public Acessorio() {
     }
 
-    public Acessorio(int idAcessorio, String descricao, int idVeiculo) {
+    public Acessorio(int idAcessorio, String descricao) {
         this.idAcessorio = idAcessorio;
         this.descricao = descricao;
-        this.idVeiculo = idVeiculo;
     }
 
     public int getIdAcessorio() {
@@ -38,13 +36,4 @@ public class Acessorio {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
-    public int getIdVeiculo() {
-        return idVeiculo;
-    }
-
-    public void setIdVeiculo(int idVeiculo) {
-        this.idVeiculo = idVeiculo;
-    }
-
 }

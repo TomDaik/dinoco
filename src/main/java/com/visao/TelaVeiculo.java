@@ -48,7 +48,6 @@ public class TelaVeiculo extends javax.swing.JFrame {
         comboboxVeiculoAcessorio = new javax.swing.JComboBox<>();
         btnVeiculoSalvar = new javax.swing.JButton();
         btnVeiculoAlterar = new javax.swing.JButton();
-        btnVeiculoDeletar = new javax.swing.JButton();
         btnVeiculoVoltar = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         txtVeiculoAno = new javax.swing.JTextField();
@@ -117,13 +116,6 @@ public class TelaVeiculo extends javax.swing.JFrame {
             }
         });
 
-        btnVeiculoDeletar.setText("Deletar");
-        btnVeiculoDeletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVeiculoDeletarActionPerformed(evt);
-            }
-        });
-
         btnVeiculoVoltar.setText("Voltar");
         btnVeiculoVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,8 +172,7 @@ public class TelaVeiculo extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnVeiculoSalvar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnVeiculoAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnVeiculoDeletar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(btnVeiculoAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,9 +213,7 @@ public class TelaVeiculo extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnVeiculoSalvar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnVeiculoAlterar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnVeiculoDeletar))
+                        .addComponent(btnVeiculoAlterar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -238,7 +227,7 @@ public class TelaVeiculo extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtVeiculoAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnVeiculoVoltar)
@@ -260,10 +249,6 @@ public class TelaVeiculo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnVeiculoDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeiculoDeletarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVeiculoDeletarActionPerformed
 
     private void btnVeiculoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeiculoSalvarActionPerformed
         // TODO add your handling code here:
@@ -315,7 +300,6 @@ public class TelaVeiculo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVeiculoAlterar;
-    private javax.swing.JButton btnVeiculoDeletar;
     private javax.swing.JButton btnVeiculoSalvar;
     private javax.swing.JButton btnVeiculoVoltar;
     private javax.swing.JComboBox<String> comboboxVeiculoAcessorio;

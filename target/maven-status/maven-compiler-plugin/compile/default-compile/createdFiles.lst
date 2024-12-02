@@ -44,7 +44,7 @@ com\visao\TelaMarca$3.class
 com\modelos\crud\IOficinaCRUD.class
 com\visao\TelaCliente$5.class
 com\persistencia\MarcaDAO.class
-com\visao\TelaVeiculo$5.class
+com\visao\TelaAcessorio$3.class
 com\visao\TelaFuncionario$2.class
 com\modelos\crud\IAcessorioCRUD.class
 com\visao\TelaPecas$2.class
@@ -72,6 +72,7 @@ com\modelos\Veiculo.class
 com\modelos\crud\IClienteCRUD.class
 com\visao\TelaCliente.class
 com\modelos\crud\IItensServicoCRUD.class
+com\visao\TelaAcessorio$2.class
 com\visao\TelaMarca$1.class
 com\modelos\OrdemServico.class
 com\visao\TelaCliente$3.class

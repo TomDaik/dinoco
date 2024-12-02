@@ -79,7 +79,6 @@ public class TelaFuncionario extends javax.swing.JFrame {
         tableFuncionario = new javax.swing.JTable();
         btnFuncionarioSalvar = new javax.swing.JButton();
         btnFuncionarioAlterar = new javax.swing.JButton();
-        btnFuncionarioDeletar = new javax.swing.JButton();
         btnFuncionarioVoltar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtFuncionarioID = new javax.swing.JTextField();
@@ -137,8 +136,6 @@ public class TelaFuncionario extends javax.swing.JFrame {
             }
         });
 
-        btnFuncionarioDeletar.setText("Deletar");
-
         btnFuncionarioVoltar.setText("Voltar");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -187,7 +184,6 @@ public class TelaFuncionario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnFuncionarioAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnFuncionarioDeletar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnFuncionarioSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -212,8 +208,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnFuncionarioAlterar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnFuncionarioDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -323,7 +318,6 @@ public class TelaFuncionario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFuncionarioAlterar;
-    private javax.swing.JButton btnFuncionarioDeletar;
     private javax.swing.JButton btnFuncionarioSalvar;
     private javax.swing.JButton btnFuncionarioVoltar;
     private javax.swing.JComboBox<String> comboboxFuncionarioEspecialidade;
