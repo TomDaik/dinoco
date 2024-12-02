@@ -106,7 +106,6 @@ public class TelaCliente extends javax.swing.JFrame {
         txtClienteContato = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableCliente = new javax.swing.JTable();
-        btnClienteVoltar = new javax.swing.JButton();
         btnClienteSalvar = new javax.swing.JButton();
         btnClienteAlterar = new javax.swing.JButton();
         txtClienteMunicipio = new javax.swing.JTextField();
@@ -189,8 +188,6 @@ public class TelaCliente extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tableCliente);
-
-        btnClienteVoltar.setText("Voltar");
 
         btnClienteSalvar.setText("Salvar");
         btnClienteSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -363,10 +360,7 @@ public class TelaCliente extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnClienteVoltar)))
+                        .addComponent(jScrollPane1)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -428,9 +422,7 @@ public class TelaCliente extends javax.swing.JFrame {
                     .addComponent(lblContato, javax.swing.GroupLayout.Alignment.LEADING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnClienteVoltar)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -603,7 +595,6 @@ public class TelaCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClienteAlterar;
     private javax.swing.JButton btnClienteSalvar;
-    private javax.swing.JButton btnClienteVoltar;
     private javax.swing.JComboBox<String> comboboxClienteTipo;
     private javax.swing.JFormattedTextField ftxtClienteCEP;
     private javax.swing.JFormattedTextField ftxtClienteCNPJ;

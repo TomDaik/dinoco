@@ -90,4 +90,9 @@ public class OrdemServico {
         this.idVeiculo = idVeiculo;
     }
 
+    @Override
+    public String toString() {
+        return numeroOS + "-" + status;
+    }
+
 }

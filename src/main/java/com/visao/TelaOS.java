@@ -4,17 +4,39 @@
  */
 package com.visao;
 
+import com.modelos.crud.IClienteCRUD;
+import com.modelos.crud.IOrdemServicoCRUD;
+import com.modelos.crud.IPecaCRUD;
+import com.modelos.crud.IServicoCRUD;
+import com.modelos.crud.IVeiculoCRUD;
+import com.persistencia.AcessorioDAO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alexandre
  */
 public class TelaOS extends javax.swing.JFrame {
 
+    private IVeiculoCRUD veiculoBD = null;
+    private IClienteCRUD clienteBD = null;
+    private IOrdemServicoCRUD ordemServicoBD = null;
+    private IServicoCRUD servicoBD = null;
+    private IPecaCRUD pecaBD = null;
+
     /**
      * Creates new form TelaOS
      */
     public TelaOS() {
         initComponents();
+        setLocationRelativeTo(null);
+        try {
+//            acessorioBD = new AcessorioDAO();
+//            mostrarServicosNaGrid();
+//            mostrarItensPecas
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Construtor Tela: " + erro.getMessage());
+        }
     }
 
     /**
@@ -36,15 +58,12 @@ public class TelaOS extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         lblOsNome = new javax.swing.JLabel();
-        lblOsCPF = new javax.swing.JLabel();
         lblOsTelefone = new javax.swing.JLabel();
         lblOsEmail = new javax.swing.JLabel();
         lblOsRazaoSocial = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         lblOsStatus = new javax.swing.JLabel();
-        lblOsCNPJ = new javax.swing.JLabel();
         lblOsContato = new javax.swing.JLabel();
-        lblOsIE = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         lblOsMarca = new javax.swing.JLabel();
         lblOsModelo = new javax.swing.JLabel();
@@ -60,7 +79,6 @@ public class TelaOS extends javax.swing.JFrame {
         btnOsRemoverServico = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         btnOsVoltar = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,8 +128,6 @@ public class TelaOS extends javax.swing.JFrame {
 
         lblOsNome.setText("NOME");
 
-        lblOsCPF.setText("CPF");
-
         lblOsTelefone.setText("TELEFONE");
 
         lblOsEmail.setText("EMAIL");
@@ -123,11 +139,7 @@ public class TelaOS extends javax.swing.JFrame {
 
         lblOsStatus.setText("printarStatus");
 
-        lblOsCNPJ.setText("CNPJ");
-
         lblOsContato.setText("CONTATO");
-
-        lblOsIE.setText("IE");
 
         jLabel16.setText("endereco...");
 
@@ -159,9 +171,6 @@ public class TelaOS extends javax.swing.JFrame {
 
         btnOsVoltar.setText("Voltar");
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        jLabel6.setText("falta label!!");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -180,39 +189,40 @@ public class TelaOS extends javax.swing.JFrame {
                         .addGap(421, 421, 421))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(lblOsNumeroOS))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addComponent(jLabel6))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(6, 6, 6)
-                                    .addComponent(jLabel2))
-                                .addComponent(lblOsNumeroOS)))
+                                .addGap(36, 36, 36)
+                                .addComponent(jLabel2)
+                                .addGap(36, 36, 36)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
+                                .addGap(21, 21, 21)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lblOsNome)
-                                                .addGap(61, 61, 61)
-                                                .addComponent(lblOsCPF)
-                                                .addGap(34, 34, 34)
+                                                .addComponent(lblOsRazaoSocial)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                            .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lblOsContato)
-                                                    .addComponent(lblOsTelefone)))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(lblOsMarca)
-                                                    .addGap(40, 40, 40)
-                                                    .addComponent(lblOsPlaca))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(lblOsRazaoSocial)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(lblOsCNPJ))))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(6, 6, 6)
+                                                        .addComponent(lblOsMarca))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(13, 13, 13)
+                                                        .addComponent(lblOsNome)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(55, 55, 55)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(lblOsContato)
+                                                            .addComponent(lblOsTelefone)))
+                                                    .addComponent(lblOsPlaca, javax.swing.GroupLayout.Alignment.LEADING))))
                                         .addGap(0, 0, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(lblOsEmail)
                                                 .addGap(26, 26, 26)
@@ -220,11 +230,9 @@ public class TelaOS extends javax.swing.JFrame {
                                                 .addGap(46, 46, 46)
                                                 .addComponent(jLabel11)
                                                 .addGap(9, 9, 9))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lblOsIE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lblOsStatus))))
+                                            .addComponent(lblOsStatus, javax.swing.GroupLayout.Alignment.TRAILING)))
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(88, 88, 88)
@@ -250,7 +258,7 @@ public class TelaOS extends javax.swing.JFrame {
                                         .addComponent(btnOsAdicionarPeca)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnOsRemoverPeca)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 46, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(227, 227, 227)
@@ -279,7 +287,6 @@ public class TelaOS extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lblOsNome)
-                    .addComponent(lblOsCPF)
                     .addComponent(lblOsTelefone)
                     .addComponent(lblOsEmail)
                     .addComponent(jLabel11)
@@ -288,9 +295,7 @@ public class TelaOS extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblOsNumeroOS)
                     .addComponent(lblOsRazaoSocial)
-                    .addComponent(lblOsCNPJ)
                     .addComponent(lblOsContato)
-                    .addComponent(lblOsIE)
                     .addComponent(lblOsStatus))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -308,8 +313,7 @@ public class TelaOS extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(btnOsAdicionarPeca)
-                    .addComponent(btnOsRemoverPeca)
-                    .addComponent(jLabel6))
+                    .addComponent(btnOsRemoverPeca))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -376,17 +380,13 @@ public class TelaOS extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblOsAcessorio;
     private javax.swing.JLabel lblOsAno;
-    private javax.swing.JLabel lblOsCNPJ;
-    private javax.swing.JLabel lblOsCPF;
     private javax.swing.JLabel lblOsChassi;
     private javax.swing.JLabel lblOsContato;
     private javax.swing.JLabel lblOsEmail;
-    private javax.swing.JLabel lblOsIE;
     private javax.swing.JLabel lblOsKilometragem;
     private javax.swing.JLabel lblOsMarca;
     private javax.swing.JLabel lblOsModelo;

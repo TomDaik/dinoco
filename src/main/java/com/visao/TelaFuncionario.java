@@ -80,7 +80,6 @@ public class TelaFuncionario extends javax.swing.JFrame {
         tableFuncionario = new javax.swing.JTable();
         btnFuncionarioSalvar = new javax.swing.JButton();
         btnFuncionarioAlterar = new javax.swing.JButton();
-        btnFuncionarioVoltar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtFuncionarioID = new javax.swing.JTextField();
 
@@ -136,8 +135,6 @@ public class TelaFuncionario extends javax.swing.JFrame {
             }
         });
 
-        btnFuncionarioVoltar.setText("Voltar");
-
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("ID");
 
@@ -180,10 +177,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnFuncionarioAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnFuncionarioSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnFuncionarioVoltar)))
+                            .addComponent(btnFuncionarioSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -214,9 +208,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
                     .addComponent(btnFuncionarioAlterar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnFuncionarioVoltar)
-                .addGap(12, 12, 12))
+                .addGap(47, 47, 47))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -313,7 +305,6 @@ public class TelaFuncionario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFuncionarioAlterar;
     private javax.swing.JButton btnFuncionarioSalvar;
-    private javax.swing.JButton btnFuncionarioVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

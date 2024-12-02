@@ -4,8 +4,6 @@
  */
 package com.modelos;
 
-import java.util.Date;
-
 /**
  *
  * @author pedro
@@ -98,6 +96,11 @@ public class Veiculo {
 
     public void setIdModelo(int idModelo) {
         this.idModelo = idModelo;
+    }
+    
+    @Override
+    public String toString() {
+        return idVeiculo + "-" + placa;
     }
 
 }

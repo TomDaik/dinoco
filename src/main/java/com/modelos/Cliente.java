@@ -190,4 +190,9 @@ public class Cliente {
         this.tipoCliente = tipoCliente;
     }
 
+    @Override
+    public String toString() {
+        return idCliente + "-" + nome;
+    }
+
 }

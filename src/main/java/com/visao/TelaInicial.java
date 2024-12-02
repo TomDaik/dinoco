@@ -10,11 +10,40 @@ package com.visao;
  */
 public class TelaInicial extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaInicio
-     */
+    private TelaAcessorio telaAcessorio;
+    private TelaCliente telaCliente;
+    private TelaFuncionario telaFuncionario;
+    private TelaMarca telaMarca;
+    private TelaModelo telaModelo;
+    private TelaOS telaOS;
+    private TelaPecas telaPecas;
+    private TelaServicos telaServicos;
+    private TelaVeiculo telaVeiculo;
+    private TelaCriarOS telaCriarOS;
+
     public TelaInicial() {
         initComponents();
+        telaAcessorio = new TelaAcessorio();
+        telaCliente = new TelaCliente();
+        telaFuncionario = new TelaFuncionario();
+        telaMarca = new TelaMarca();
+        telaModelo = new TelaModelo();
+        telaOS = new TelaOS();
+        telaPecas = new TelaPecas();
+        telaServicos = new TelaServicos();
+        telaVeiculo = new TelaVeiculo();
+        telaCriarOS = new TelaCriarOS();
+        comboboxTelasCadastro.addItem("Tela Acessorio");
+        comboboxTelasCadastro.addItem("Tela Cliente");
+        comboboxTelasCadastro.addItem("Tela Funcionario");
+        comboboxTelasCadastro.addItem("Tela Marca");
+        comboboxTelasCadastro.addItem("Tela Modelo");
+        comboboxTelasCadastro.addItem("Tela OS");
+        comboboxTelasCadastro.addItem("Tela Pecas");
+        comboboxTelasCadastro.addItem("Tela Servicos");
+        comboboxTelasCadastro.addItem("Tela Veiculo");
+        comboboxTelasCadastro.addItem("Tela Criar OS");
+
     }
 
     /**
@@ -28,88 +57,96 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        comboboxTelasCadastro = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("DINOCO");
 
-        jButton1.setText("Cadastos");
-
-        jButton2.setText("Abrir Nova Ordem de Serviço");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Abrir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Ordens de Serviço em Aberto?");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jButton4.setText("Relatório");
-
-        jButton5.setText("Info");
+        comboboxTelasCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboboxTelasCadastroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2))
-                .addGap(92, 92, 92))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton5)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(17, 17, 17)
-                                        .addComponent(jLabel1)))
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(70, 70, 70)))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addGap(168, 168, 168)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(comboboxTelasCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(jButton1)
+                .addContainerGap(114, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addGap(12, 12, 12)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                .addComponent(jButton5)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboboxTelasCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addContainerGap(223, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void comboboxTelasCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxTelasCadastroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_comboboxTelasCadastroActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String selecao = (String) comboboxTelasCadastro.getSelectedItem();
+        telaAcessorio.setVisible(false);
+        telaCliente.setVisible(false);
+        telaFuncionario.setVisible(false);
+        telaMarca.setVisible(false);
+        telaModelo.setVisible(false);
+        telaOS.setVisible(false);
+        telaPecas.setVisible(false);
+        telaServicos.setVisible(false);
+        telaVeiculo.setVisible(false);
+        switch (selecao) {
+            case "Tela Acessorio" ->
+                telaAcessorio.setVisible(true);
+            case "Tela Cliente" ->
+                telaCliente.setVisible(true);
+            case "Tela Funcionario" ->
+                telaFuncionario.setVisible(true);
+            case "Tela Marca" ->
+                telaMarca.setVisible(true);
+            case "Tela Modelo" ->
+                telaModelo.setVisible(true);
+            case "Tela OS" ->
+                telaOS.setVisible(true);
+            case "Tela Pecas" ->
+                telaPecas.setVisible(true);
+            case "Tela Servicos" ->
+                telaServicos.setVisible(true);
+            case "Tela Veiculo" ->
+                telaVeiculo.setVisible(true);
+            case "Tela Criar OS" ->
+                telaCriarOS.setVisible(true);
+            default -> {
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,12 +185,8 @@ public class TelaInicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboboxTelasCadastro;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -85,7 +85,6 @@ public class TelaModelo extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableModelo = new javax.swing.JTable();
-        btnModeloVoltar = new javax.swing.JButton();
         btnModeloSalvar = new javax.swing.JButton();
         btnModeloAlterar = new javax.swing.JButton();
         comboboxModeloMarca = new javax.swing.JComboBox<>();
@@ -122,8 +121,6 @@ public class TelaModelo extends javax.swing.JFrame {
             tableModelo.getColumnModel().getColumn(0).setResizable(false);
         }
 
-        btnModeloVoltar.setText("Voltar");
-
         btnModeloSalvar.setText("Salvar");
         btnModeloSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,9 +149,6 @@ public class TelaModelo extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnModeloVoltar))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -206,9 +200,7 @@ public class TelaModelo extends javax.swing.JFrame {
                             .addComponent(txtModeloDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnModeloVoltar)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -298,7 +290,6 @@ public class TelaModelo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnModeloAlterar;
     private javax.swing.JButton btnModeloSalvar;
-    private javax.swing.JButton btnModeloVoltar;
     private javax.swing.JComboBox<String> comboboxModeloMarca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
