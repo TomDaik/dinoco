@@ -37,4 +37,9 @@ public class Marca {
         this.descricao = descricao;
     }
 
+    @Override
+    public String toString() {
+        return idMarca + "-" + descricao;
+    }
+
 }

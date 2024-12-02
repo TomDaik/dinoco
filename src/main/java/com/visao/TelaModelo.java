@@ -249,9 +249,14 @@ public class TelaModelo extends javax.swing.JFrame {
         try {
             Modelo modelo = null;
             int identificador = 0;
-            int marca = (int) comboboxModeloMarca.getSelectedItem();
             String descricao = txtModeloDescricao.getText();
-            modelo = new Modelo(identificador, descricao, marca);
+            String aux = (String) comboboxModeloMarca.getSelectedItem();
+            System.out.println("Marca selecionada: "+aux);
+            String vetMarca[] = aux.split("-");
+            System.out.println("Id da Marca: "+vetMarca[0]);
+            int idMarca = Integer.parseInt(vetMarca[0]);
+            modelo = new Modelo(identificador, descricao, idMarca);
+            System.out.println(modelo.toString());
             modeloBD.incluir(modelo);
             limparTela();
             mostrarModeloNaGrid();

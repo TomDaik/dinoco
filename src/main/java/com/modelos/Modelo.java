@@ -47,4 +47,8 @@ public class Modelo {
         this.idMarca = idMarca;
     }
 
+    @Override
+    public String toString() {
+        return idModelo + "-" + descricao + "-" + idMarca;
+    }
 }
