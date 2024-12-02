@@ -15,6 +15,7 @@ public class Cliente {
     private String ddi1 = "";
     private String ddd1 = "";
     private String numero1 = "";
+    private String telefone1 = "";
     private String ddi2 = "";
     private String ddd2 = "";
     private String numero2 = "";
@@ -25,19 +26,21 @@ public class Cliente {
     private String cep = "";
     private String municipio = "";
     private String uf = "";
+    private String tipoCliente = "";
 
     public Cliente() {
     }
 
     public Cliente(int idCliente, String nome, String ddi1, String ddd1,
-            String numero1, String ddi2, String ddd2, String numero2,
+            String numero1, String telefone1, String ddi2, String ddd2, String numero2,
             String email, String logradouro, String complemento, String bairro,
-            String cep, String municipio, String uf) {
+            String cep, String municipio, String uf, String tipoCliente) {
         this.idCliente = idCliente;
         this.nome = nome;
         this.ddi1 = ddi1;
         this.ddd1 = ddd1;
         this.numero1 = numero1;
+        this.telefone1 = telefone1;
         this.ddi2 = ddi2;
         this.ddd2 = ddd2;
         this.numero2 = numero2;
@@ -48,6 +51,7 @@ public class Cliente {
         this.cep = cep;
         this.municipio = municipio;
         this.uf = uf;
+        this.tipoCliente = tipoCliente;
     }
 
     public int getIdCliente() {
@@ -88,6 +92,14 @@ public class Cliente {
 
     public void setNumero1(String numero1) {
         this.numero1 = numero1;
+    }
+
+    public String getTelefone1() {
+        return telefone1;
+    }
+
+    public void setTelefone1(String telefone1) {
+        this.telefone1 = telefone1;
     }
 
     public String getDdi2() {
@@ -168,6 +180,14 @@ public class Cliente {
 
     public void setUf(String uf) {
         this.uf = uf;
+    }
+
+    public String getTipoCliente() {
+        return tipoCliente;
+    }
+
+    public void setTipoCliente(String tipoCliente) {
+        this.tipoCliente = tipoCliente;
     }
 
 }

@@ -49,7 +49,7 @@ public class TelaAcessorio extends javax.swing.JFrame {
             }
             for (int pos = 0; pos < listaDeAcessorios.size(); pos++) {
                 Acessorio objAcessorio = listaDeAcessorios.get(pos);
-                String[] linha = new String[5];
+                String[] linha = new String[2];
                 linha[0] = objAcessorio.getIdAcessorio() + "";
                 linha[1] = objAcessorio.getDescricao();
                 model.addRow(linha);
