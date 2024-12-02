@@ -21,6 +21,7 @@ com\visao\TelaCliente$4.class
 com\modelos\PessoaFisica.class
 com\visao\TelaMarca$2.class
 com\visao\TelaServicos.class
+com\visao\TelaServicos$3.class
 com\visao\TelaMarca.class
 com\persistencia\OrdemServicoDAO.class
 com\visao\TelaAcessorio.class
@@ -66,7 +67,6 @@ com\modelos\crud\IFuncionarioCRUD.class
 com\modelos\crud\IPessoaFisicaCRUD.class
 com\persistencia\PropriedadeDAO.class
 com\persistencia\VeiculoDAO.class
-com\visao\TelaModelo$4.class
 com\modelos\Peca.class
 com\modelos\Veiculo.class
 com\modelos\crud\IClienteCRUD.class

@@ -78,7 +78,6 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="btnServicoSalvar" alignment="1" max="32767" attributes="0"/>
                               <Component id="btnServicoAlterar" alignment="1" max="32767" attributes="0"/>
-                              <Component id="btnServicoDeletar" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -97,8 +96,6 @@
                           <Component id="btnServicoSalvar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnServicoAlterar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnServicoDeletar" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -118,7 +115,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="181" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -213,11 +210,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Alterar"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnServicoDeletar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Deletar"/>
-          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnServicoAlterarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>

@@ -4,17 +4,61 @@
  */
 package com.visao;
 
+import com.modelos.Servico;
+import com.modelos.crud.IServicoCRUD;
+import com.persistencia.ServicoDAO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Alexandre
  */
 public class TelaServicos extends javax.swing.JFrame {
 
+    private IServicoCRUD servicoBD = null;
+
     /**
      * Creates new form TelaServicos
      */
     public TelaServicos() {
         initComponents();
+        setLocationRelativeTo(null);
+        try {
+            servicoBD = new ServicoDAO();
+            mostrarServicosNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Construtor Tela: " + erro.getMessage());
+        }
+    }
+
+    private void limparTela() {
+        txtServicoID.setText("");
+        txtServicoDescricao.setText("");
+        txtServicoPrecoUnitario.setText("");
+    }
+
+    private void mostrarServicosNaGrid() {
+        try {
+            ArrayList<Servico> listaDeServicos = null;
+            listaDeServicos = servicoBD.obterListaDeServico();
+            DefaultTableModel model = (DefaultTableModel) tableServicos.getModel();
+            model.setNumRows(0);
+            if (listaDeServicos.isEmpty()) {
+                throw new Exception("Lista de Serviços BD Vazia");
+            }
+            for (int pos = 0; pos < listaDeServicos.size(); pos++) {
+                Servico objServico = listaDeServicos.get(pos);
+                String[] linha = new String[5];
+                linha[0] = objServico.getIdServico() + "";
+                linha[1] = objServico.getDescricao();
+                linha[2] = objServico.getPrecoUnitario() + "";
+                model.addRow(linha);
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
     }
 
     /**
@@ -36,7 +80,6 @@ public class TelaServicos extends javax.swing.JFrame {
         tableServicos = new javax.swing.JTable();
         btnServicoSalvar = new javax.swing.JButton();
         btnServicoAlterar = new javax.swing.JButton();
-        btnServicoDeletar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtServicoID = new javax.swing.JTextField();
         btnServicoVoltar = new javax.swing.JButton();
@@ -75,8 +118,11 @@ public class TelaServicos extends javax.swing.JFrame {
         });
 
         btnServicoAlterar.setText("Alterar");
-
-        btnServicoDeletar.setText("Deletar");
+        btnServicoAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnServicoAlterarActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("ID");
@@ -109,8 +155,7 @@ public class TelaServicos extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnServicoSalvar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnServicoAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnServicoDeletar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnServicoAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -123,9 +168,7 @@ public class TelaServicos extends javax.swing.JFrame {
                         .addGap(22, 22, 22)
                         .addComponent(btnServicoSalvar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnServicoAlterar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnServicoDeletar))
+                        .addComponent(btnServicoAlterar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -139,7 +182,7 @@ public class TelaServicos extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(txtServicoPrecoUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(30, 30, 30)
+                .addGap(46, 46, 46)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -168,8 +211,34 @@ public class TelaServicos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnServicoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServicoSalvarActionPerformed
-        // TODO add your handling code here:
+        try {
+            Servico servico = null;
+            int idServico = 0;
+            String descricao = txtServicoDescricao.getText();
+            double precoUnitario = Double.parseDouble(txtServicoPrecoUnitario.getText());
+            servico = new Servico(idServico, descricao, precoUnitario);
+            servicoBD.incluir(servico);
+            limparTela();
+            mostrarServicosNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, "Incluir Visao: " + erro.getMessage());
+        }
     }//GEN-LAST:event_btnServicoSalvarActionPerformed
+
+    private void btnServicoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnServicoAlterarActionPerformed
+        try {
+            Servico servico = null;
+            int idServico = Integer.parseInt(txtServicoID.getText());
+            String descricao = txtServicoDescricao.getText();
+            double precoUnitario = Double.parseDouble(txtServicoPrecoUnitario.getText());
+            servico = new Servico(idServico, descricao, precoUnitario);
+            servicoBD.alterar(servico);
+            limparTela();
+            mostrarServicosNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, "Incluir Visao: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_btnServicoAlterarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,7 +277,6 @@ public class TelaServicos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnServicoAlterar;
-    private javax.swing.JButton btnServicoDeletar;
     private javax.swing.JButton btnServicoSalvar;
     private javax.swing.JButton btnServicoVoltar;
     private javax.swing.JLabel jLabel1;

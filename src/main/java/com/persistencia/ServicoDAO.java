@@ -70,8 +70,8 @@ public class ServicoDAO implements IServicoCRUD {
     @Override
     public void alterar(Servico objServico) throws Exception {
         try {
-            String sql = "update servico set descricao = ?, precounitario = ?"
-                    + "where idpeca = ?";
+            String sql = "update servico set descricao = ?, precounitario = ? "
+                    + "where idservico = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setString(1, objServico.getDescricao());
             preparedStatement.setDouble(2, objServico.getPrecoUnitario());
