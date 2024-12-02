@@ -8,7 +8,6 @@ import com.ferramentas.ConexaoBD;
 import com.modelos.Veiculo;
 import com.modelos.crud.IVeiculoCRUD;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -44,7 +43,7 @@ public class VeiculoDAO implements IVeiculoCRUD {
                 objVeiculo.setChassi(rs.getString("chassi"));
                 objVeiculo.setKilometragem(rs.getInt("kilometragem"));
                 objVeiculo.setnPatrimonio(rs.getString("npatrimonio"));
-                objVeiculo.setAno(rs.getDate("ano"));
+                objVeiculo.setAno(rs.getString("ano"));
                 objVeiculo.setIdAcessorio(rs.getInt("idacessorio"));
                 objVeiculo.setIdModelo(rs.getInt("idmodelo"));
                 listaDeVeiculo.add(objVeiculo);
@@ -67,7 +66,7 @@ public class VeiculoDAO implements IVeiculoCRUD {
             preparedStatement.setString(2, objVeiculo.getChassi());
             preparedStatement.setInt(3, objVeiculo.getKilometragem());
             preparedStatement.setString(4, objVeiculo.getnPatrimonio());
-            preparedStatement.setDate(5, (Date) objVeiculo.getAno());
+            preparedStatement.setString(5, objVeiculo.getAno());
             preparedStatement.setInt(6, objVeiculo.getIdAcessorio());
             preparedStatement.setInt(7, objVeiculo.getIdModelo());
             preparedStatement.executeUpdate();
@@ -83,16 +82,17 @@ public class VeiculoDAO implements IVeiculoCRUD {
     public void alterar(Veiculo objVeiculo) throws Exception {
         try {
             String sql = "update veiculo set placa = ?, chassi = ?, kilometragem = ?,"
-                    + "npatrimonio = ?, ano = ?, idacessorio = ?, idmodelo = ?"
+                    + "npatrimonio = ?, ano = ?, idacessorio = ?, idmodelo = ? "
                     + "where idveiculo = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setString(1, objVeiculo.getPlaca());
             preparedStatement.setString(2, objVeiculo.getChassi());
             preparedStatement.setInt(3, objVeiculo.getKilometragem());
             preparedStatement.setString(4, objVeiculo.getnPatrimonio());
-            preparedStatement.setDate(5, (Date) objVeiculo.getAno());
+            preparedStatement.setString(5, objVeiculo.getAno());
             preparedStatement.setInt(6, objVeiculo.getIdAcessorio());
             preparedStatement.setInt(7, objVeiculo.getIdModelo());
+            preparedStatement.setInt(8, objVeiculo.getIdVeiculo());
             preparedStatement.executeUpdate();
         } catch (SQLException erro) {
             //Erro do comando SQL - chave, coluna, nome da tabela, ...

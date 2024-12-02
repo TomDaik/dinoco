@@ -17,7 +17,7 @@ public class Veiculo {
     private String chassi = "";
     private int kilometragem = 0;
     private String nPatrimonio = "";
-    private Date ano;
+    private String ano;
     private int idAcessorio = 0;
     private int idModelo = 0;
 
@@ -25,7 +25,7 @@ public class Veiculo {
     }
 
     public Veiculo(int idVeiculo, String placa, String chassi, int kilometragem,
-            String nPatrimonio, Date ano, int idAcessorio, int idModelo) {
+            String nPatrimonio, String ano, int idAcessorio, int idModelo) {
         this.idVeiculo = idVeiculo;
         this.placa = placa;
         this.chassi = chassi;
@@ -76,11 +76,11 @@ public class Veiculo {
         this.nPatrimonio = nPatrimonio;
     }
 
-    public Date getAno() {
+    public String getAno() {
         return ano;
     }
 
-    public void setAno(Date ano) {
+    public void setAno(String ano) {
         this.ano = ano;
     }
 

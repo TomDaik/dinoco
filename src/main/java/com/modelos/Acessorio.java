@@ -36,4 +36,9 @@ public class Acessorio {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+    
+    @Override
+    public String toString() {
+        return idAcessorio + "-" + descricao;
+    }
 }
