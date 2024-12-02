@@ -88,7 +88,6 @@ public class TelaModelo extends javax.swing.JFrame {
         btnModeloVoltar = new javax.swing.JButton();
         btnModeloSalvar = new javax.swing.JButton();
         btnModeloAlterar = new javax.swing.JButton();
-        btnModeloDeletar = new javax.swing.JButton();
         comboboxModeloMarca = new javax.swing.JComboBox<>();
         txtModeloDescricao = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -139,13 +138,6 @@ public class TelaModelo extends javax.swing.JFrame {
             }
         });
 
-        btnModeloDeletar.setText("Deletar");
-        btnModeloDeletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModeloDeletarActionPerformed(evt);
-            }
-        });
-
         comboboxModeloMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -183,11 +175,9 @@ public class TelaModelo extends javax.swing.JFrame {
                                     .addComponent(comboboxModeloMarca, 0, 80, Short.MAX_VALUE)
                                     .addComponent(txtModeloID))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnModeloAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnModeloSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(btnModeloDeletar, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnModeloAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnModeloSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -201,8 +191,6 @@ public class TelaModelo extends javax.swing.JFrame {
                         .addComponent(btnModeloSalvar)
                         .addGap(5, 5, 5)
                         .addComponent(btnModeloAlterar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnModeloDeletar)
                         .addGap(6, 6, 6))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -240,7 +228,7 @@ public class TelaModelo extends javax.swing.JFrame {
     private void btnModeloAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModeloAlterarActionPerformed
         try {
             Modelo modelo = null;
-            int identificador = 0;
+            int identificador = Integer.parseInt(txtModeloID.getText());;
             String descricao = txtModeloDescricao.getText();
             String aux = (String) comboboxModeloMarca.getSelectedItem();
             String vetMarca[] = aux.split("-");
@@ -253,10 +241,6 @@ public class TelaModelo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Incluir Visao: " + erro.getMessage());
         }
     }//GEN-LAST:event_btnModeloAlterarActionPerformed
-
-    private void btnModeloDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModeloDeletarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnModeloDeletarActionPerformed
 
     private void btnModeloSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModeloSalvarActionPerformed
         try {
@@ -313,7 +297,6 @@ public class TelaModelo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnModeloAlterar;
-    private javax.swing.JButton btnModeloDeletar;
     private javax.swing.JButton btnModeloSalvar;
     private javax.swing.JButton btnModeloVoltar;
     private javax.swing.JComboBox<String> comboboxModeloMarca;

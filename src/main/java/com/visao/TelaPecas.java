@@ -4,17 +4,65 @@
  */
 package com.visao;
 
+import com.modelos.Peca;
+import com.modelos.crud.IPecaCRUD;
+import com.persistencia.PecaDAO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Alexandre
  */
 public class TelaPecas extends javax.swing.JFrame {
 
+    private IPecaCRUD pecaBD = null;
+
     /**
      * Creates new form TelaPeças
      */
     public TelaPecas() {
         initComponents();
+        setLocationRelativeTo(null);
+        try {
+            pecaBD = new PecaDAO();
+            mostrarPecasNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Construtor Tela: " + erro.getMessage());
+        }
+    }
+
+    private void limparTela() {
+        txtPecasCodigoPeca.setText("");
+        jTextField1.setText("");
+        txtPecasDescricao.setText("");
+        txtPecasQuantidade.setText("");
+        txtPecasPrecoUnitario.setText("");
+    }
+
+    private void mostrarPecasNaGrid() {
+        try {
+            ArrayList<Peca> listaDePecas = null;
+            listaDePecas = pecaBD.obterListaDePeca();
+            DefaultTableModel model = (DefaultTableModel) tablePecas.getModel();
+            model.setNumRows(0);
+            if (listaDePecas.isEmpty()) {
+                throw new Exception("Lista de Peças BD Vazia");
+            }
+            for (int pos = 0; pos < listaDePecas.size(); pos++) {
+                Peca objPeca = listaDePecas.get(pos);
+                String[] linha = new String[5];
+                linha[0] = objPeca.getIdPeca() + "";
+                linha[1] = objPeca.getCodigoPeca();
+                linha[2] = objPeca.getDescricao() + "";
+                linha[3] = objPeca.getQuantidade() + "";
+                linha[4] = objPeca.getPrecoUnitario() + "";
+                model.addRow(linha);
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
     }
 
     /**
@@ -40,7 +88,6 @@ public class TelaPecas extends javax.swing.JFrame {
         txtPecasPrecoUnitario = new javax.swing.JTextField();
         btnPecasSalvar = new javax.swing.JButton();
         btnPecasAlterar = new javax.swing.JButton();
-        btnPecasDeletar = new javax.swing.JButton();
         btnPecasVoltar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -91,8 +138,11 @@ public class TelaPecas extends javax.swing.JFrame {
         });
 
         btnPecasAlterar.setText("ALTERAR");
-
-        btnPecasDeletar.setText("DELETAR");
+        btnPecasAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPecasAlterarActionPerformed(evt);
+            }
+        });
 
         btnPecasVoltar.setText("VOLTAR");
         btnPecasVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +190,6 @@ public class TelaPecas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnPecasAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnPecasDeletar, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnPecasSalvar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -172,8 +221,7 @@ public class TelaPecas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtPecasQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPecasDeletar))
+                    .addComponent(txtPecasQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -208,8 +256,38 @@ public class TelaPecas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPecasVoltarActionPerformed
 
     private void btnPecasSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPecasSalvarActionPerformed
-        // TODO add your handling code here:
+        try {
+            Peca peca = null;
+            int idPeca = 0;
+            String codigoPeca = txtPecasCodigoPeca.getText();
+            String descricao = txtPecasDescricao.getText();
+            int quantidade = Integer.parseInt(txtPecasQuantidade.getText());
+            double precoUnitario = Double.parseDouble(txtPecasPrecoUnitario.getText());
+            peca = new Peca(idPeca, descricao, codigoPeca, quantidade, precoUnitario);
+            pecaBD.incluir(peca);
+            limparTela();
+            mostrarPecasNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, "Incluir Visao: " + erro.getMessage());
+        }
     }//GEN-LAST:event_btnPecasSalvarActionPerformed
+
+    private void btnPecasAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPecasAlterarActionPerformed
+        try {
+            Peca peca = null;
+            int idPeca = Integer.parseInt(jTextField1.getText());;
+            String codigoPeca = txtPecasCodigoPeca.getText();
+            String descricao = txtPecasDescricao.getText();
+            int quantidade = Integer.parseInt(txtPecasQuantidade.getText());
+            double precoUnitario = Double.parseDouble(txtPecasPrecoUnitario.getText());
+            peca = new Peca(idPeca, descricao, codigoPeca, quantidade, precoUnitario);
+            pecaBD.alterar(peca);
+            limparTela();
+            mostrarPecasNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, "Incluir Visao: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_btnPecasAlterarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,7 +327,6 @@ public class TelaPecas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPecasAlterar;
-    private javax.swing.JButton btnPecasDeletar;
     private javax.swing.JButton btnPecasSalvar;
     private javax.swing.JButton btnPecasVoltar;
     private javax.swing.JLabel jLabel1;

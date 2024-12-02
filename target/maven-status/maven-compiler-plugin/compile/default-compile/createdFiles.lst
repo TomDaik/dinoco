@@ -32,6 +32,7 @@ com\persistencia\ItensPecaDAO.class
 com\modelos\crud\IPessoaJuridicaCRUD.class
 com\visao\TelaFuncionario$5.class
 com\visao\TelaVeiculo$2.class
+com\visao\TelaPecas$5.class
 com\visao\TelaServicos$1.class
 com\modelos\crud\IVeiculoCRUD.class
 com\modelos\crud\IOrdemServicoCRUD.class

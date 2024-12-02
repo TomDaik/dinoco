@@ -76,7 +76,7 @@ public class PecaDAO implements IPecaCRUD {
     public void alterar(Peca objPeca) throws Exception {
         try {
             String sql = "update peca set descricao = ?, codigopeca = ?, "
-                    + "quantidade = ?, precounitario = ?"
+                    + "quantidade = ?, precounitario = ? "
                     + "where idpeca = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setString(1, objPeca.getDescricao());

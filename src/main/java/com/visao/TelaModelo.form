@@ -74,12 +74,9 @@
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnModeloAlterar" max="32767" attributes="0"/>
-                                  <Component id="btnModeloSalvar" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="btnModeloDeletar" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnModeloAlterar" max="32767" attributes="0"/>
+                              <Component id="btnModeloSalvar" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -98,8 +95,6 @@
                           <Component id="btnModeloSalvar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                           <Component id="btnModeloAlterar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnModeloDeletar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -220,14 +215,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModeloAlterarActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnModeloDeletar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Deletar"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModeloDeletarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="comboboxModeloMarca">
