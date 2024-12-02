@@ -18,9 +18,9 @@ public class Modelo {
     }
 
     public Modelo(int idModelo, String descricao, int idMarca) {
-        this.idMarca = idModelo;
+        this.idModelo = idModelo;
         this.descricao = descricao;
-        this.idModelo = idMarca;
+        this.idMarca = idMarca;
     }
 
     public int getIdModelo() {

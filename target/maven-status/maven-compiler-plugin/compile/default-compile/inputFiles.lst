@@ -1,56 +1,56 @@
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\ferramentas\ConexaoBD.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\Acessorio.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\Cliente.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\crud\IAcessorioCRUD.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\crud\IClienteCRUD.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\crud\IFuncionarioCRUD.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\crud\IItensPecaCRUD.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\crud\IItensServicoCRUD.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\crud\IMarcaCRUD.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\crud\IModeloCRUD.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\crud\IOficinaCRUD.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\crud\IOrdemServicoCRUD.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\crud\IPecaCRUD.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\crud\IPessoaFisicaCRUD.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\crud\IPessoaJuridicaCRUD.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\crud\IPropriedadeCRUD.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\crud\IServicoCRUD.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\crud\IVeiculoCRUD.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\Funcionario.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\ItensPeca.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\ItensServico.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\Marca.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\Modelo.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\Oficina.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\OrdemServico.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\Peca.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\PessoaFisica.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\PessoaJuridica.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\Propriedade.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\Servico.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\modelos\Veiculo.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\persistencia\AcessorioDAO.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\persistencia\ClienteDAO.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\persistencia\FuncionarioDAO.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\persistencia\ItensPecaDAO.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\persistencia\ItensServicoDAO.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\persistencia\MarcaDAO.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\persistencia\ModeloDAO.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\persistencia\OficinaDAO.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\persistencia\OrdemServicoDAO.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\persistencia\PecaDAO.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\persistencia\PessoaFisicaDAO.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\persistencia\PessoaJuridicaDAO.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\persistencia\PropriedadeDAO.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\persistencia\ServicoDAO.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\persistencia\VeiculoDAO.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\visao\TelaAcessorio.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\visao\TelaCliente.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\visao\TelaFuncionario.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\visao\TelaInicial.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\visao\TelaMarca.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\visao\TelaModelo.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\visao\TelaOS.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\visao\TelaPecas.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\visao\TelaServicos.java
-C:\Users\pedro\OneDrive\Área de Trabalho\dinoco\src\main\java\com\visao\TelaVeiculo.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\ferramentas\ConexaoBD.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\Acessorio.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\Cliente.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\crud\IAcessorioCRUD.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\crud\IClienteCRUD.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\crud\IFuncionarioCRUD.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\crud\IItensPecaCRUD.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\crud\IItensServicoCRUD.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\crud\IMarcaCRUD.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\crud\IModeloCRUD.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\crud\IOficinaCRUD.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\crud\IOrdemServicoCRUD.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\crud\IPecaCRUD.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\crud\IPessoaFisicaCRUD.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\crud\IPessoaJuridicaCRUD.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\crud\IPropriedadeCRUD.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\crud\IServicoCRUD.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\crud\IVeiculoCRUD.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\Funcionario.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\ItensPeca.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\ItensServico.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\Marca.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\Modelo.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\Oficina.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\OrdemServico.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\Peca.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\PessoaFisica.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\PessoaJuridica.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\Propriedade.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\Servico.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\modelos\Veiculo.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\persistencia\AcessorioDAO.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\persistencia\ClienteDAO.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\persistencia\FuncionarioDAO.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\persistencia\ItensPecaDAO.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\persistencia\ItensServicoDAO.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\persistencia\MarcaDAO.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\persistencia\ModeloDAO.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\persistencia\OficinaDAO.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\persistencia\OrdemServicoDAO.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\persistencia\PecaDAO.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\persistencia\PessoaFisicaDAO.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\persistencia\PessoaJuridicaDAO.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\persistencia\PropriedadeDAO.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\persistencia\ServicoDAO.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\persistencia\VeiculoDAO.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\visao\TelaAcessorio.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\visao\TelaCliente.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\visao\TelaFuncionario.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\visao\TelaInicial.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\visao\TelaMarca.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\visao\TelaModelo.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\visao\TelaOS.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\visao\TelaPecas.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\visao\TelaServicos.java
+C:\Users\pedro\OneDrive\Área de Trabalho\Nova pasta\dinoco\src\main\java\com\visao\TelaVeiculo.java
