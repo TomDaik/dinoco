@@ -238,7 +238,20 @@ public class TelaModelo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModeloAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModeloAlterarActionPerformed
-        // TODO add your handling code here:
+        try {
+            Modelo modelo = null;
+            int identificador = 0;
+            String descricao = txtModeloDescricao.getText();
+            String aux = (String) comboboxModeloMarca.getSelectedItem();
+            String vetMarca[] = aux.split("-");
+            int idMarca = Integer.parseInt(vetMarca[0]);
+            modelo = new Modelo(identificador, descricao, idMarca);
+            modeloBD.alterar(modelo);
+            limparTela();
+            mostrarModeloNaGrid();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, "Incluir Visao: " + erro.getMessage());
+        }
     }//GEN-LAST:event_btnModeloAlterarActionPerformed
 
     private void btnModeloDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModeloDeletarActionPerformed
@@ -251,12 +264,9 @@ public class TelaModelo extends javax.swing.JFrame {
             int identificador = 0;
             String descricao = txtModeloDescricao.getText();
             String aux = (String) comboboxModeloMarca.getSelectedItem();
-            System.out.println("Marca selecionada: "+aux);
             String vetMarca[] = aux.split("-");
-            System.out.println("Id da Marca: "+vetMarca[0]);
             int idMarca = Integer.parseInt(vetMarca[0]);
             modelo = new Modelo(identificador, descricao, idMarca);
-            System.out.println(modelo.toString());
             modeloBD.incluir(modelo);
             limparTela();
             mostrarModeloNaGrid();

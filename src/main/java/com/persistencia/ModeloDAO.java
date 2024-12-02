@@ -69,8 +69,8 @@ public class ModeloDAO implements IModeloCRUD {
 
     @Override
     public void alterar(Modelo objModelo) throws Exception {
-        try {
-            String sql = "update modelo set descricao = ?, idmarca = ?"
+         try {
+            String sql = "update modelo set descricao = ?, idmarca = ? "
                     + "where idmodelo = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             preparedStatement.setString(1, objModelo.getDescricao());
